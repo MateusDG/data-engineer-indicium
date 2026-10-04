@@ -1,0 +1,49 @@
+requires_meltano: ">=4.4.0,<4.5.0"
+default_environment: local
+environments:
+  - name: local
+project_id: banvic-local-poc
+send_anonymous_usage_stats: false
+plugins:
+  extractors:
+    - name: tap-csv
+      namespace: tap_csv
+      pip_url: -c /opt/banvic/meltano/constraints-tap.txt git+https://github.com/MeltanoLabs/tap-csv.git@0c84ec05266b5924134c0e0c2bb5e764475d845b
+      executable: tap-csv
+      capabilities: [catalog, discover]
+      settings:
+        - name: files
+          kind: array
+        - name: add_metadata_columns
+          kind: boolean
+      config:
+        add_metadata_columns: false
+  loaders:
+    - name: target-postgres
+      namespace: target_postgres
+      pip_url: -c /opt/banvic/meltano/constraints-target.txt meltanolabs-target-postgres==0.8.0
+      executable: target-postgres
+      settings:
+        - name: host
+        - name: port
+          kind: integer
+        - name: user
+        - name: password
+          sensitive: true
+        - name: database
+        - name: default_target_schema
+        - name: load_method
+        - name: add_record_metadata
+          kind: boolean
+        - name: activate_version
+          kind: boolean
+        - name: batch_size_rows
+          kind: integer
+        - name: use_copy
+          kind: boolean
+      config:
+        load_method: upsert
+        add_record_metadata: false
+        activate_version: false
+        batch_size_rows: 5000
+        use_copy: true

@@ -1,0 +1,13 @@
+.git
+.runtime
+.secrets
+**/.terraform
+**/*.tfstate*
+**/__pycache__
+**/.venv
+Dados Banvic.zip
+*.zip
+banvic-dbt
+data
+delivery
+evidence

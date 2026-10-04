@@ -1,0 +1,26 @@
+test_digest_preserves_cells_and_duplicate_multiplicity (test_source.SourceTests.test_digest_preserves_cells_and_duplicate_multiplicity) ... ok
+test_duplicate_keys_and_changed_schema_are_rejected (test_source.SourceTests.test_duplicate_keys_and_changed_schema_are_rejected) ... ok
+test_invalid_width_and_date_are_rejected (test_source.SourceTests.test_invalid_width_and_date_are_rejected) ... ok
+test_missing_table_blocks_snapshot (test_source.SourceTests.test_missing_table_blocks_snapshot) ... ok
+test_official_zip_contract (test_source.SourceTests.test_official_zip_contract) ... ok
+test_path_traversal_is_rejected (test_source.SourceTests.test_path_traversal_is_rejected) ... ok
+test_retry_freezes_original_source_and_detects_tampering (test_source.SourceTests.test_retry_freezes_original_source_and_detects_tampering) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.448s
+
+OK
+2026-10-04T14:37:16.366463Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T14:37:16.366647Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T14:37:16.366752Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T14:37:16.366842Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T14:37:16.366927Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T14:37:16.367040Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T14:37:16.544344Z [info     ] Filling up the DagBag from /opt/airflow/dags [airflow.dag_processing.dagbag.DagBag] loc=dagbag.py:469
+DAG import, task count and cycle checks passed
+pod/banvic-integration-tests condition met
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 3.722s
+
+OK

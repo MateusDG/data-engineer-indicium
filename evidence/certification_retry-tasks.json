@@ -1,0 +1,67 @@
+[
+  {
+    "task_id": "wait_for_zip",
+    "state": "success",
+    "try_number": 1
+  },
+  {
+    "task_id": "load_agencias",
+    "state": "success",
+    "try_number": 1
+  },
+  {
+    "task_id": "load_clientes",
+    "state": "success",
+    "try_number": 1
+  },
+  {
+    "task_id": "load_colaborador_agencia",
+    "state": "success",
+    "try_number": 1
+  },
+  {
+    "task_id": "load_colaboradores",
+    "state": "success",
+    "try_number": 1
+  },
+  {
+    "task_id": "load_propostas_credito",
+    "state": "success",
+    "try_number": 1
+  },
+  {
+    "task_id": "load_transacoes",
+    "state": "success",
+    "try_number": 1
+  },
+  {
+    "task_id": "validate_all_tables",
+    "state": "success",
+    "try_number": 1
+  },
+  {
+    "task_id": "publish_snapshot",
+    "state": "success",
+    "try_number": 1
+  },
+  {
+    "task_id": "pipeline_complete",
+    "state": "success",
+    "try_number": 1
+  },
+  {
+    "task_id": "record_failure",
+    "state": "skipped",
+    "try_number": 0
+  },
+  {
+    "task_id": "prepare_snapshot",
+    "state": "success",
+    "try_number": 2
+  },
+  {
+    "task_id": "load_contas",
+    "state": "success",
+    "try_number": 2
+  }
+]

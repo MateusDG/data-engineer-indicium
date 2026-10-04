@@ -1,0 +1,103 @@
+airflowVersion: "3.2.2"
+defaultAirflowRepository: banvic-airflow
+defaultAirflowTag: "1.0.0"
+images:
+  airflow:
+    pullPolicy: Never
+executor: LocalExecutor
+postgresql:
+  enabled: false
+redis:
+  enabled: false
+data:
+  metadataSecretName: banvic-airflow-metadata
+fernetKeySecretName: banvic-airflow-fernet
+apiSecretKeySecretName: banvic-airflow-api
+jwtSecretName: banvic-airflow-jwt
+createUserJob:
+  enabled: false
+  useHelmHooks: false
+migrateDatabaseJob:
+  useHelmHooks: false
+  jobAnnotations: {}
+rbac:
+  create: false
+config:
+  core:
+    load_examples: "False"
+    parallelism: "4"
+    auth_manager: airflow.api_fastapi.auth.managers.simple.simple_auth_manager.SimpleAuthManager
+    simple_auth_manager_users: "admin:admin"
+    simple_auth_manager_passwords_file: /opt/airflow/auth/passwords.json
+  logging:
+    logging_level: INFO
+  scheduler:
+    enable_health_check: "True"
+  api:
+    expose_config: "False"
+    workers: "2"
+volumes:
+  - name: auth
+    secret:
+      secretName: banvic-airflow-auth
+volumeMounts:
+  - name: auth
+    mountPath: /opt/airflow/auth-seed
+    readOnly: true
+logs:
+  persistence:
+    enabled: true
+    existingClaim: banvic-logs
+scheduler:
+  replicas: 1
+  serviceAccount:
+    create: false
+    name: banvic-airflow
+  extraVolumes:
+    - name: source
+      persistentVolumeClaim:
+        claimName: banvic-data
+  extraVolumeMounts:
+    - name: source
+      mountPath: /data/input
+      subPath: input
+      readOnly: true
+  resources:
+    requests: {cpu: 200m, memory: 512Mi}
+    limits: {cpu: "3", memory: 2Gi}
+dagProcessor:
+  replicas: 1
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: "1", memory: 768Mi}
+apiServer:
+  replicas: 1
+  # SimpleAuthManager opens its password file for writing during initialization.
+  # Copy the Secret into the container's private writable directory at startup.
+  args:
+    - bash
+    - -c
+    - >-
+      mkdir -p /opt/airflow/auth &&
+      cp /opt/airflow/auth-seed/passwords.json /opt/airflow/auth/passwords.json &&
+      chmod 600 /opt/airflow/auth/passwords.json &&
+      exec airflow api-server
+  startupProbe:
+    failureThreshold: 60
+    periodSeconds: 10
+    timeoutSeconds: 5
+  resources:
+    requests: {cpu: 200m, memory: 512Mi}
+    limits: {cpu: "2", memory: 2Gi}
+triggerer:
+  enabled: false
+statsd:
+  enabled: true
+  resources:
+    requests: {cpu: 50m, memory: 64Mi}
+    limits: {cpu: 200m, memory: 128Mi}
+dags:
+  persistence:
+    enabled: false
+  gitSync:
+    enabled: false

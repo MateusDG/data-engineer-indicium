@@ -1,0 +1,17 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Deploy reproduzível no Kubernetes</title><style>
+body{margin:0;background:#102638;color:#eaf3f7;font:24px Arial;padding:48px 64px}
+h1{font-size:40px;margin:0 0 16px}p{color:#a5c7ce;margin:0 0 32px}
+pre{font:22px/1.6 Consolas,monospace;margin:0;white-space:pre-wrap}a{color:#74d5c5}
+</style><h1>Deploy reproduzível no Kubernetes</h1><p>Saída real do terminal, recorte para apresentação. 04/10/2026.</p><pre style="color:#74d5c5">$ bash scripts/deploy.sh</pre><br><pre>No changes. Your infrastructure matches the configuration.
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+Seven Kubernetes Secrets configured. Credentials remain in the private WSL directory.
+partitioned roll out complete: 1 new pods have been updated...
+No changes. Your infrastructure matches the configuration.
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+airflow-api-server-8546588dcf-ltnd8      1/1     Running   0          16m
+airflow-dag-processor-59dd887fd4-zkr6s   2/2     Running   0          16m
+airflow-scheduler-0                      2/2     Running   0          16m
+airflow-statsd-7d8479bbf5-lgt6s          1/1     Running   0          26m
+postgres-0                               1/1     Running   0          26m</pre></html>

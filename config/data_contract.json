@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "tables": {
+    "agencias": {"columns": ["cod_agencia", "nome", "endereco", "cidade", "uf", "data_abertura", "tipo_agencia"], "keys": ["cod_agencia"], "dates": ["data_abertura"]},
+    "clientes": {"columns": ["cod_cliente", "primeiro_nome", "ultimo_nome", "email", "tipo_cliente", "data_inclusao", "cpfcnpj", "data_nascimento", "endereco", "cep"], "keys": ["cod_cliente"], "dates": ["data_inclusao", "data_nascimento"]},
+    "colaborador_agencia": {"columns": ["cod_colaborador", "cod_agencia"], "keys": ["cod_colaborador", "cod_agencia"]},
+    "colaboradores": {"columns": ["cod_colaborador", "primeiro_nome", "ultimo_nome", "email", "cpf", "data_nascimento", "endereco", "cep"], "keys": ["cod_colaborador"], "dates": ["data_nascimento"]},
+    "contas": {"columns": ["num_conta", "cod_cliente", "cod_agencia", "cod_colaborador", "tipo_conta", "data_abertura", "saldo_total", "saldo_disponivel", "data_ultimo_lancamento"], "keys": ["num_conta"], "dates": ["data_abertura", "data_ultimo_lancamento"], "decimals": ["saldo_total", "saldo_disponivel"]},
+    "propostas_credito": {"columns": ["cod_proposta", "cod_cliente", "cod_colaborador", "data_entrada_proposta", "taxa_juros_mensal", "valor_proposta", "valor_financiamento", "valor_entrada", "valor_prestacao", "quantidade_parcelas", "carencia", "status_proposta"], "keys": ["cod_proposta"], "dates": ["data_entrada_proposta"], "decimals": ["taxa_juros_mensal", "valor_proposta", "valor_financiamento", "valor_entrada", "valor_prestacao"], "integers": ["quantidade_parcelas", "carencia"]},
+    "transacoes": {"columns": ["cod_transacao", "num_conta", "data_transacao", "nome_transacao", "valor_transacao"], "keys": ["cod_transacao"], "dates": ["data_transacao"], "decimals": ["valor_transacao"]}
+  },
+  "relationships": [
+    ["contas", "cod_cliente", "clientes", "cod_cliente"],
+    ["contas", "cod_agencia", "agencias", "cod_agencia"],
+    ["contas", "cod_colaborador", "colaboradores", "cod_colaborador"],
+    ["propostas_credito", "cod_cliente", "clientes", "cod_cliente"],
+    ["propostas_credito", "cod_colaborador", "colaboradores", "cod_colaborador"],
+    ["transacoes", "num_conta", "contas", "num_conta"],
+    ["colaborador_agencia", "cod_colaborador", "colaboradores", "cod_colaborador"],
+    ["colaborador_agencia", "cod_agencia", "agencias", "cod_agencia"]
+  ],
+  "relationship_policy": "warn_for_source_orphans_fail_for_new_orphans"
+}

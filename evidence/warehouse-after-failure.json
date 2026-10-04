@@ -1,0 +1,144 @@
+{
+  "collected_at": "2026-10-04T14:17:31.457786+00:00",
+  "table_counts": {
+    "agencias": 10,
+    "clientes": 998,
+    "colaborador_agencia": 100,
+    "colaboradores": 100,
+    "contas": 999,
+    "propostas_credito": 2000,
+    "transacoes": 71999
+  },
+  "runs": [
+    {
+      "run_id": "scheduled__2026-10-04T09:00:00+00:00",
+      "status": "failed",
+      "source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+      "started_at": "2026-10-04T14:03:31.712805+00:00",
+      "finished_at": "2026-10-04T14:05:13.516755+00:00"
+    },
+    {
+      "run_id": "certification_initial",
+      "status": "published",
+      "source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+      "started_at": "2026-10-04T14:05:58.006634+00:00",
+      "finished_at": "2026-10-04T14:07:23.20511+00:00"
+    },
+    {
+      "run_id": "certification_retry",
+      "status": "published",
+      "source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+      "started_at": "2026-10-04T14:10:41.371+00:00",
+      "finished_at": "2026-10-04T14:12:46.043199+00:00"
+    },
+    {
+      "run_id": "certification_failure",
+      "status": "failed",
+      "source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+      "started_at": "2026-10-04T14:14:59.92134+00:00",
+      "finished_at": "2026-10-04T14:17:23.854649+00:00"
+    }
+  ],
+  "current_snapshot": {
+    "singleton": true,
+    "run_id": "certification_retry",
+    "source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+    "published_at": "2026-10-04T14:12:46.042748+00:00"
+  },
+  "table_results": [
+    {
+      "run_id": "certification_initial",
+      "table_name": "agencias",
+      "row_count": 10,
+      "content_sha256": "91282b3985d528a4a550ce2b96b589a16acf8a7527fb05e9d9b985d0f483840d"
+    },
+    {
+      "run_id": "certification_initial",
+      "table_name": "clientes",
+      "row_count": 998,
+      "content_sha256": "830ccaa6afd31543e49d998d177394657015faabff648535ee11390e6ade903c"
+    },
+    {
+      "run_id": "certification_initial",
+      "table_name": "colaborador_agencia",
+      "row_count": 100,
+      "content_sha256": "fdd12f5d195e66b4b1278200628e580f28a96108573d2ecc27bf107100b54615"
+    },
+    {
+      "run_id": "certification_initial",
+      "table_name": "colaboradores",
+      "row_count": 100,
+      "content_sha256": "a6ec654280659debaa1ecd9ec54787173429dd3bd14c1a1bf9cc9cfa98466c79"
+    },
+    {
+      "run_id": "certification_initial",
+      "table_name": "contas",
+      "row_count": 999,
+      "content_sha256": "71608b7574e9adcde483775d595ac591fa95034459cfc91d0763b2861ea9b9a5"
+    },
+    {
+      "run_id": "certification_initial",
+      "table_name": "propostas_credito",
+      "row_count": 2000,
+      "content_sha256": "88f82770a049a8c2e9789abc49437d0d3adf8e8fdc8e5dd1156fe8e866bdd8ab"
+    },
+    {
+      "run_id": "certification_initial",
+      "table_name": "transacoes",
+      "row_count": 71999,
+      "content_sha256": "936142ad67ccf8f480e494d6756c9d84347709b8200269003a7c722fe01dabe5"
+    },
+    {
+      "run_id": "certification_retry",
+      "table_name": "agencias",
+      "row_count": 10,
+      "content_sha256": "91282b3985d528a4a550ce2b96b589a16acf8a7527fb05e9d9b985d0f483840d"
+    },
+    {
+      "run_id": "certification_retry",
+      "table_name": "clientes",
+      "row_count": 998,
+      "content_sha256": "830ccaa6afd31543e49d998d177394657015faabff648535ee11390e6ade903c"
+    },
+    {
+      "run_id": "certification_retry",
+      "table_name": "colaborador_agencia",
+      "row_count": 100,
+      "content_sha256": "fdd12f5d195e66b4b1278200628e580f28a96108573d2ecc27bf107100b54615"
+    },
+    {
+      "run_id": "certification_retry",
+      "table_name": "colaboradores",
+      "row_count": 100,
+      "content_sha256": "a6ec654280659debaa1ecd9ec54787173429dd3bd14c1a1bf9cc9cfa98466c79"
+    },
+    {
+      "run_id": "certification_retry",
+      "table_name": "contas",
+      "row_count": 999,
+      "content_sha256": "71608b7574e9adcde483775d595ac591fa95034459cfc91d0763b2861ea9b9a5"
+    },
+    {
+      "run_id": "certification_retry",
+      "table_name": "propostas_credito",
+      "row_count": 2000,
+      "content_sha256": "88f82770a049a8c2e9789abc49437d0d3adf8e8fdc8e5dd1156fe8e866bdd8ab"
+    },
+    {
+      "run_id": "certification_retry",
+      "table_name": "transacoes",
+      "row_count": 71999,
+      "content_sha256": "936142ad67ccf8f480e494d6756c9d84347709b8200269003a7c722fe01dabe5"
+    }
+  ],
+  "reprocessing_differences": 0,
+  "source_orphans": {
+    "contas_cliente": 1,
+    "propostas_cliente": 4
+  },
+  "analyst_permissions": {
+    "read_raw": true,
+    "write_raw": false,
+    "create_raw": false
+  }
+}
