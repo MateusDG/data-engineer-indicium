@@ -8,6 +8,8 @@
 
 O vídeo usa voz sintética local Microsoft Maria, sem clonagem de voz ou envio de conteúdo a serviço de mídia externo. Ele apresenta uma reaplicação real do deploy, a mesma execução Airflow em andamento e concluída, e a consulta real das contagens no PostgreSQL. Os recortes do terminal identificam sua origem. Não se apresenta uma montagem como gravação contínua da tela.
 
+Os materiais registram os 12 testes de ingestão e banco aprovados na gravação. A revisão posterior adicionou dois testes de segurança do empacotamento, totalizando 14, descritos em `REVISAO_COMPLETA.md`. O fluxo de ingestão demonstrado permaneceu o mesmo.
+
 ## Revisão realizada
 
 A apresentação passou pelos validadores de integridade do arquivo, geometria, fontes e presença de tabelas nativas. Os oito slides foram renderizados a partir do PPTX final e revisados visualmente. O diagrama usa conectores e formas editáveis. As duas tabelas são objetos nativos do PowerPoint. Nenhum gráfico quantitativo foi necessário.

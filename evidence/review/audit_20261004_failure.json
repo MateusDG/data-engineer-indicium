@@ -1,0 +1,60 @@
+{
+  "run_id": "audit_20261004_failure",
+  "state": "failed",
+  "start_date": "2026-10-04T15:26:16.947512Z",
+  "end_date": "2026-10-04T15:28:38.636685Z",
+  "tasks": {
+    "wait_for_zip": {
+      "state": "success",
+      "try_number": 1
+    },
+    "prepare_snapshot": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_agencias": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_clientes": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_colaborador_agencia": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_colaboradores": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_propostas_credito": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_transacoes": {
+      "state": "success",
+      "try_number": 1
+    },
+    "validate_all_tables": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "publish_snapshot": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "pipeline_complete": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "record_failure": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_contas": {
+      "state": "failed",
+      "try_number": 3
+    }
+  }
+}

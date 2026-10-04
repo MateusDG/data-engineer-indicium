@@ -4,6 +4,7 @@ source "$(dirname "$0")/common.sh"
 cd "$BANVIC_REPO"
 banvic_python=$(uv python find 3.12.15)
 "$banvic_python" -m unittest discover -s tests -p test_source.py -v
+"$banvic_python" -m unittest discover -s tests -p test_delivery.py -v
 terraform fmt -recursive -check infra
 for script in scripts/*.sh infra/postgres-init.sh; do bash -n "$script"; done
 docker run --rm --entrypoint python banvic-airflow:1.0.0 -c \

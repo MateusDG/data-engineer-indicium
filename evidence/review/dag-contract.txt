@@ -1,0 +1,8 @@
+2026-10-04T15:47:11.285900Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T15:47:11.286116Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T15:47:11.286265Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T15:47:11.286404Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T15:47:11.286556Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T15:47:11.286671Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+2026-10-04T15:47:11.473382Z [info     ] Filling up the DagBag from /opt/airflow/dags [airflow.dag_processing.dagbag.DagBag] loc=dagbag.py:469
+{"tasks": 13, "dependencies": "passed", "schedule": "0 6 * * *", "timezone": "America/Sao_Paulo", "failure_not_masked": "passed", "pod_security": "passed", "dag_sha256": "f9d9c271d927e345d9b28cb445c63620ee81967c27f4b868680a60aebdd96856"}

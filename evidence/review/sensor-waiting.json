@@ -1,0 +1,58 @@
+{
+  "run_id": "audit_20261004_sensor",
+  "file_available": false,
+  "tasks": {
+    "wait_for_zip": {
+      "state": "up_for_reschedule",
+      "try_number": 1
+    },
+    "prepare_snapshot": {
+      "state": null,
+      "try_number": 0
+    },
+    "load_agencias": {
+      "state": null,
+      "try_number": 0
+    },
+    "load_clientes": {
+      "state": null,
+      "try_number": 0
+    },
+    "load_colaborador_agencia": {
+      "state": null,
+      "try_number": 0
+    },
+    "load_colaboradores": {
+      "state": null,
+      "try_number": 0
+    },
+    "load_contas": {
+      "state": null,
+      "try_number": 0
+    },
+    "load_propostas_credito": {
+      "state": null,
+      "try_number": 0
+    },
+    "load_transacoes": {
+      "state": null,
+      "try_number": 0
+    },
+    "validate_all_tables": {
+      "state": null,
+      "try_number": 0
+    },
+    "publish_snapshot": {
+      "state": null,
+      "try_number": 0
+    },
+    "pipeline_complete": {
+      "state": null,
+      "try_number": 0
+    },
+    "record_failure": {
+      "state": null,
+      "try_number": 0
+    }
+  }
+}

@@ -1,0 +1,165 @@
+Set kubectl context to "kind-banvic"
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from pipeline.Dockerfile
+#1 transferring dockerfile: 744B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/meltano/meltano:v4.4.0-python3.12-slim@sha256:dc5421533a91de964a5bc21adf12339f74466a5eb564568bd7592a0bd3b23db7
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 174B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/9] FROM docker.io/meltano/meltano:v4.4.0-python3.12-slim@sha256:dc5421533a91de964a5bc21adf12339f74466a5eb564568bd7592a0bd3b23db7
+#4 resolve docker.io/meltano/meltano:v4.4.0-python3.12-slim@sha256:dc5421533a91de964a5bc21adf12339f74466a5eb564568bd7592a0bd3b23db7 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 28.59kB 0.1s done
+#5 DONE 0.1s
+
+#6 [5/9] RUN cd meltano && meltano install && pip install --no-cache-dir 'psycopg[binary]==3.2.12'
+#6 CACHED
+
+#7 [7/9] COPY pipeline/ pipeline/
+#7 CACHED
+
+#8 [6/9] COPY config/ config/
+#8 CACHED
+
+#9 [8/9] COPY sql/ sql/
+#9 CACHED
+
+#10 [2/9] RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates && rm -rf /var/lib/apt/lists/*
+#10 CACHED
+
+#11 [3/9] WORKDIR /opt/banvic
+#11 CACHED
+
+#12 [4/9] COPY meltano/ meltano/
+#12 CACHED
+
+#13 [9/9] RUN groupadd --gid 1000 banvic && useradd --uid 1000 --gid 1000 --create-home banvic && chmod -R a+rX /opt/banvic
+#13 CACHED
+
+#14 exporting to image
+#14 exporting layers done
+#14 exporting manifest sha256:eb57e7e437e234ae8f54411ed478877aa9b9f241e4c3d911725b32bbad7cb511 done
+#14 exporting config sha256:0dada5fc17b0984dc4de2bc08ac4e93d7fafd622db06ab5378b1b5f8a29b3468 done
+#14 exporting attestation manifest sha256:8846d26545fb10dda0de9a1a9431405c397cd7de55a9374c82f753c4283ad989 0.0s done
+#14 exporting manifest list sha256:feab33255ff3e2e3150a50b24926727c926e76b35ba03526dda8fcff47bf5a85 done
+#14 naming to docker.io/library/banvic-pipeline:1.0.0
+#14 naming to docker.io/library/banvic-pipeline:1.0.0 done
+#14 unpacking to docker.io/library/banvic-pipeline:1.0.0 0.0s done
+#14 DONE 0.1s
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from airflow.Dockerfile
+#1 transferring dockerfile: 246B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/apache/airflow:3.2.2-python3.12@sha256:bbe58e3204d550ab98dbf738a42c0e6663c455357ecd0e2d1440ef9cb6a75f00
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 174B 0.0s done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/apache/airflow:3.2.2-python3.12@sha256:bbe58e3204d550ab98dbf738a42c0e6663c455357ecd0e2d1440ef9cb6a75f00
+#4 resolve docker.io/apache/airflow:3.2.2-python3.12@sha256:bbe58e3204d550ab98dbf738a42c0e6663c455357ecd0e2d1440ef9cb6a75f00 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 4.42kB 0.0s done
+#5 DONE 0.0s
+
+#6 [2/2] COPY --chown=airflow:root dags/ /opt/airflow/dags/
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers 0.0s done
+#7 exporting manifest sha256:1cebce402621178166c06895d6d71ff560638ea1c4d4789d7125dd0a6307de07 done
+#7 exporting config sha256:df77f09f2ec9d2ecd38db047a6e4c932122c0bb423e831c1bb0a0b1144c5e391 done
+#7 exporting attestation manifest sha256:21ab0d0eb647ab79abbd8af4591cb9e5ab57a1a1d94f845d77566c0bad5a81d9 0.0s done
+#7 exporting manifest list sha256:e8327375e744db9a4ec646b10a369ae492690215532b5c1690457a5ec879571d 0.0s done
+#7 naming to docker.io/library/banvic-airflow:1.0.0 done
+#7 unpacking to docker.io/library/banvic-airflow:1.0.0 0.0s done
+#7 DONE 0.1s
+Image: "banvic-pipeline:1.0.0" with ID "sha256:feab33255ff3e2e3150a50b24926727c926e76b35ba03526dda8fcff47bf5a85" not yet present on node "banvic-control-plane", loading...
+Image: "banvic-airflow:1.0.0" with ID "sha256:e8327375e744db9a4ec646b10a369ae492690215532b5c1690457a5ec879571d" not yet present on node "banvic-control-plane", loading...
+Initializing the backend...
+
+Successfully configured the backend "local"! Terraform will automatically
+use this backend unless the backend configuration changes.
+
+Initializing provider plugins...
+- Reusing previous version of hashicorp/kubernetes from the dependency lock file
+- Using previously-installed hashicorp/kubernetes v2.38.0
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+kubernetes_namespace_v1.banvic: Refreshing state... [id=banvic]
+kubernetes_persistent_volume_v1.local["logs"]: Refreshing state... [id=banvic-logs]
+kubernetes_persistent_volume_v1.local["data"]: Refreshing state... [id=banvic-data]
+kubernetes_persistent_volume_v1.local["postgres"]: Refreshing state... [id=banvic-postgres]
+kubernetes_service_account_v1.airflow: Refreshing state... [id=banvic/banvic-airflow]
+kubernetes_config_map_v1.postgres_init: Refreshing state... [id=banvic/banvic-postgres-init]
+kubernetes_service_account_v1.pipeline: Refreshing state... [id=banvic/banvic-pipeline]
+kubernetes_role_v1.airflow_pods: Refreshing state... [id=banvic/banvic-airflow-pods]
+kubernetes_service_v1.postgres: Refreshing state... [id=banvic/postgres]
+kubernetes_role_binding_v1.airflow_pods: Refreshing state... [id=banvic/banvic-airflow-pods]
+kubernetes_persistent_volume_claim_v1.local["data"]: Refreshing state... [id=banvic/banvic-data]
+kubernetes_persistent_volume_claim_v1.local["postgres"]: Refreshing state... [id=banvic/banvic-postgres]
+kubernetes_persistent_volume_claim_v1.local["logs"]: Refreshing state... [id=banvic/banvic-logs]
+kubernetes_stateful_set_v1.postgres: Refreshing state... [id=banvic/postgres]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+Seven Kubernetes Secrets configured. Credentials remain in the private WSL directory.
+partitioned roll out complete: 1 new pods have been updated...
+Initializing the backend...
+
+Successfully configured the backend "local"! Terraform will automatically
+use this backend unless the backend configuration changes.
+
+Initializing provider plugins...
+- Reusing previous version of hashicorp/helm from the dependency lock file
+- Using previously-installed hashicorp/helm v2.17.0
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+helm_release.airflow: Refreshing state... [id=airflow]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+NAME                                     READY   STATUS    RESTARTS   AGE
+airflow-api-server-8546588dcf-ltnd8      1/1     Running   0          97m
+airflow-dag-processor-59dd887fd4-zkr6s   2/2     Running   0          97m
+airflow-scheduler-0                      2/2     Running   0          96m
+airflow-statsd-7d8479bbf5-lgt6s          1/1     Running   0          106m
+postgres-0                               1/1     Running   0          107m
+Ambiente pronto. Execute bash scripts/access.sh para abrir as portas locais.

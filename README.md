@@ -2,7 +2,7 @@
 
 Pipeline de ingestão das **sete tabelas do ERP** do BanVic, com Kubernetes local, infraestrutura como código, Meltano, Airflow e PostgreSQL. Preserva a origem, reconcilia todos os valores e publica as sete tabelas em uma única transação.
 
-**Validado em 04/10/2026:** ambiente implantado, DAG concluída, 76.206 linhas reconciliadas e 12 testes aprovados. Consulte as [evidências e limites da validação](docs/VALIDACAO.md).
+**Revisado em 04/10/2026:** ambiente implantado, DAG concluída, 76.206 linhas reconciliadas e 14 testes aprovados. Consulte a [revisão completa por requisito](docs/REVISAO_COMPLETA.md) e as [evidências da validação inicial](docs/VALIDACAO.md).
 
 ## Arquitetura
 
@@ -48,6 +48,8 @@ cd /mnt/c/Users/mateu/Desktop/data-engineer-indicium
 sudo bash scripts/install_linux_tools.sh
 bash scripts/install_python_tools.sh
 docker info
+bash scripts/install_meltano_connectors.sh
+bash scripts/download_images.sh
 bash scripts/check_environment.sh
 ```
 

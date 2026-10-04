@@ -1,0 +1,17 @@
+{
+  "presentation": {
+    "sha256": "243bcda5302707dd88b9b0887303a25a7c573f1988315970bcc013ec0cf7d556",
+    "slide_count": 8,
+    "package_integrity": "passed",
+    "layout": "passed",
+    "native_application_editing_tested": false
+  },
+  "video": {
+    "sha256": "a4a9b8df0bda9cc4af5cc3f50c0cb8332817d591b1fd85b12540a3846f433d4c",
+    "duration_seconds": 294.092,
+    "resolution": "1920x1080",
+    "complete_decode": "passed",
+    "audio": "AAC",
+    "format": "Edited presentation with real screenshots and synthetic Portuguese narration"
+  }
+}

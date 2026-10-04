@@ -1,0 +1,79 @@
+{
+  "before": {
+    "marker": {
+      "singleton": true,
+      "run_id": "audit_20261004_retry",
+      "source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+      "published_at": "2026-10-04T15:23:50.060915+00:00"
+    },
+    "tables": {
+      "agencias": {
+        "rows": 10,
+        "digest": "e3164ca5a4af628379af3ddb422468af"
+      },
+      "clientes": {
+        "rows": 998,
+        "digest": "3d21d3cfb71f5fca6ad0abb087e82ab4"
+      },
+      "colaborador_agencia": {
+        "rows": 100,
+        "digest": "76451fcf9f6d2a2f3523f99b6705072d"
+      },
+      "colaboradores": {
+        "rows": 100,
+        "digest": "92942ba894424a97e4da529c26ec40dd"
+      },
+      "contas": {
+        "rows": 999,
+        "digest": "6cfb184fb448d1f60261a3749da05501"
+      },
+      "propostas_credito": {
+        "rows": 2000,
+        "digest": "935eed2649d1757326d9d8705e3ae587"
+      },
+      "transacoes": {
+        "rows": 71999,
+        "digest": "46fb5dbae291d541ce8e8c73dcb45389"
+      }
+    }
+  },
+  "after": {
+    "marker": {
+      "singleton": true,
+      "run_id": "audit_20261004_retry",
+      "source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+      "published_at": "2026-10-04T15:23:50.060915+00:00"
+    },
+    "tables": {
+      "agencias": {
+        "rows": 10,
+        "digest": "e3164ca5a4af628379af3ddb422468af"
+      },
+      "clientes": {
+        "rows": 998,
+        "digest": "3d21d3cfb71f5fca6ad0abb087e82ab4"
+      },
+      "colaborador_agencia": {
+        "rows": 100,
+        "digest": "76451fcf9f6d2a2f3523f99b6705072d"
+      },
+      "colaboradores": {
+        "rows": 100,
+        "digest": "92942ba894424a97e4da529c26ec40dd"
+      },
+      "contas": {
+        "rows": 999,
+        "digest": "6cfb184fb448d1f60261a3749da05501"
+      },
+      "propostas_credito": {
+        "rows": 2000,
+        "digest": "935eed2649d1757326d9d8705e3ae587"
+      },
+      "transacoes": {
+        "rows": 71999,
+        "digest": "46fb5dbae291d541ce8e8c73dcb45389"
+      }
+    }
+  },
+  "identical": true
+}

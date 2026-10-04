@@ -1,6 +1,6 @@
 # Validação da solução
 
-Verificação realizada em 04/10/2026 no ambiente local do usuário. Os arquivos em `evidence/` contêm contagens, hashes, estados e capturas reais, sem registros de clientes ou credenciais.
+Validação inicial realizada em 04/10/2026 no ambiente local do usuário. A [revisão completa posterior](REVISAO_COMPLETA.md) acrescenta dois testes de empacotamento, novos cenários de execução e reprodução do deploy a partir do ZIP de entrega. Os arquivos em `evidence/` contêm contagens, hashes, estados e capturas reais, sem registros de clientes ou credenciais.
 
 ## Resultado
 

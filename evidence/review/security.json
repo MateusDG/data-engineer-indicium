@@ -1,0 +1,29 @@
+{
+  "project_files_scanned": 100,
+  "git_objects_scanned": 96,
+  "actual_credentials_found": 0,
+  "terraform_states_scanned": 2,
+  "rbac": {
+    "airflow_create_pods": true,
+    "airflow_read_secrets": false,
+    "pipeline_create_pods": false
+  },
+  "services": [
+    {
+      "name": "airflow-api-server",
+      "type": "ClusterIP"
+    },
+    {
+      "name": "airflow-scheduler",
+      "type": "ClusterIP"
+    },
+    {
+      "name": "airflow-statsd",
+      "type": "ClusterIP"
+    },
+    {
+      "name": "postgres",
+      "type": "ClusterIP"
+    }
+  ]
+}
