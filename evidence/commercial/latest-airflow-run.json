@@ -1,0 +1,7 @@
+{
+  "dag_run_id": "scheduled__2026-10-05T09:00:00+00:00",
+  "state": "success",
+  "start_date": "2026-10-05T11:50:09.360113Z",
+  "end_date": "2026-10-05T11:51:53.655678Z",
+  "run_type": "scheduled"
+}

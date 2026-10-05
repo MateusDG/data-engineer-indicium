@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-10-05T02:13:59.821347+00:00",
+  "items": [
+    {
+      "name": "banvic-data",
+      "phase": "Bound"
+    },
+    {
+      "name": "banvic-logs",
+      "phase": "Bound"
+    },
+    {
+      "name": "banvic-postgres",
+      "phase": "Bound"
+    }
+  ]
+}

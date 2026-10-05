@@ -21,3 +21,4 @@ delivery/*.mp4
 delivery/*.pptx
 delivery/frames/
 evidence/private/
+**/node_modules/

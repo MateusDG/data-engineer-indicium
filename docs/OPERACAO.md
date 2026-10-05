@@ -2,11 +2,13 @@
 
 ## Acesso e credenciais
 
-Execute `bash scripts/access.sh` após iniciar o Docker e após trocar/reiniciar o pod da API. Port-forwards encerram quando o pod de destino desaparece. O script reutiliza processos ativos e ignora processos zumbis. Se o processo estiver ativo durante uma atualização, espere a atualização terminar e execute novamente.
+Execute `bash scripts/access.sh` após iniciar o Docker e após trocar/reiniciar o pod da API. O script reutiliza port-forwards válidos, ignora processos zumbis e testa os endpoints HTTP de Airflow e dashboard. Se um processo continuar ativo apontando para um pod antigo, o script reinicia somente aquele encaminhamento identificado. Espere a atualização terminar antes de executar novamente.
 
 Credenciais ficam em `~/banvic-local/secrets/credentials.json`, com permissão 600. Não altere esse arquivo isoladamente: o PostgreSQL inicializa usuários apenas na primeira criação do volume. Rotação exige alterar os usuários no banco e atualizar os Secrets coordenadamente.
 
 ## Diagnóstico
+
+O dashboard fica em http://localhost:8090, usuário `comercial`, senha no campo `dashboard_admin` do arquivo privado. Para atualizar essa camada, use `bash scripts/deploy_commercial.sh` e depois `bash scripts/access.sh`. Não é necessário reiniciar o Airflow quando somente a interface comercial muda. `/health/ready` verifica o snapshot; logs ficam disponíveis em `kubectl -n banvic logs deployment/banvic-commercial`. Consulte [DASHBOARD_COMERCIAL.md](DASHBOARD_COMERCIAL.md).
 
 1. Confirme `docker info` e `kind get clusters` no Ubuntu.
 2. Defina `export KUBECONFIG="$HOME/banvic-local/kubeconfig"`.

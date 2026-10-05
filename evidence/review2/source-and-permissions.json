@@ -1,0 +1,6 @@
+{
+  "source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+  "mounted_source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+  "credentials_mode": "0o600",
+  "secrets_directory_mode": "0o700"
+}

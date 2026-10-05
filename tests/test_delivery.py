@@ -25,6 +25,20 @@ class DeliveryTests(unittest.TestCase):
                 self.assertIsNone(archive.testzip())
                 self.assertEqual(set(archive.namelist()), set(names))
 
+    def test_dashboard_assets_and_locks_are_included_without_node_modules(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            public = ['commercial/static/app.js','commercial/static/style.css','commercial/static/mark.svg',
+                      'commercial/requirements.lock','commercial/requirements.in','commercial/package-lock.json',
+                      'commercial/static/vendor/echarts.min.js','infra/commercial/main.tf']
+            for name in public+['commercial/node_modules/echarts/package.json']:
+                path = root/name
+                path.parent.mkdir(parents=True,exist_ok=True)
+                path.write_text('public')
+            names = package_project(root,root/'delivery/project.zip')
+            self.assertTrue(set(public).issubset(names))
+            self.assertNotIn('commercial/node_modules/echarts/package.json',names)
+
     def test_excludes_nested_secrets_state_and_source_data(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

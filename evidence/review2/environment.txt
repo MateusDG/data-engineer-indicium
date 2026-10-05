@@ -1,0 +1,47 @@
+All shell scripts passed bash -n.
+docker.io/apache/airflow@sha256:bbe58e3204d550ab98dbf738a42c0e6663c455357ecd0e2d1440ef9cb6a75f00: Pulling from apache/airflow
+Digest: sha256:bbe58e3204d550ab98dbf738a42c0e6663c455357ecd0e2d1440ef9cb6a75f00
+Status: Image is up to date for apache/airflow@sha256:bbe58e3204d550ab98dbf738a42c0e6663c455357ecd0e2d1440ef9cb6a75f00
+docker.io/apache/airflow:3.2.2-python3.12@sha256:bbe58e3204d550ab98dbf738a42c0e6663c455357ecd0e2d1440ef9cb6a75f00
+docker.io/meltano/meltano@sha256:dc5421533a91de964a5bc21adf12339f74466a5eb564568bd7592a0bd3b23db7: Pulling from meltano/meltano
+Digest: sha256:dc5421533a91de964a5bc21adf12339f74466a5eb564568bd7592a0bd3b23db7
+Status: Image is up to date for meltano/meltano@sha256:dc5421533a91de964a5bc21adf12339f74466a5eb564568bd7592a0bd3b23db7
+docker.io/meltano/meltano:v4.4.0-python3.12-slim@sha256:dc5421533a91de964a5bc21adf12339f74466a5eb564568bd7592a0bd3b23db7
+docker.io/library/postgres@sha256:71e27bf60b70bded003791b5573f8b808365613f341df20ffcf0c1ed7bc13ddf: Pulling from library/postgres
+Digest: sha256:71e27bf60b70bded003791b5573f8b808365613f341df20ffcf0c1ed7bc13ddf
+Status: Image is up to date for postgres@sha256:71e27bf60b70bded003791b5573f8b808365613f341df20ffcf0c1ed7bc13ddf
+docker.io/library/postgres:16@sha256:71e27bf60b70bded003791b5573f8b808365613f341df20ffcf0c1ed7bc13ddf
+docker.io/kindest/node@sha256:07b2536e30b803ed61d1677a79df6115f798ce64c80f9e22f6ed45afd09323c0: Pulling from kindest/node
+Digest: sha256:07b2536e30b803ed61d1677a79df6115f798ce64c80f9e22f6ed45afd09323c0
+Status: Image is up to date for kindest/node@sha256:07b2536e30b803ed61d1677a79df6115f798ce64c80f9e22f6ed45afd09323c0
+docker.io/kindest/node:v1.35.8@sha256:07b2536e30b803ed61d1677a79df6115f798ce64c80f9e22f6ed45afd09323c0
+"apache-airflow" already exists with the same configuration, skipping
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "apache-airflow" chart repository
+Update Complete. ⎈Happy Helming!⎈
+Docker cliente=28.3.3 servidor=28.3.3
+git version 2.34.1
+kind v0.33.0 go1.26.7 linux/amd64
+Client Version: v1.35.8
+Kustomize Version: v5.7.1
+Terraform v1.16.4
+on linux_amd64
+
+Your version of Terraform is out of date! The latest version
+is 1.16.5. You can update by downloading from https://developer.hashicorp.com/terraform/install
+v3.21.4+g813176c
+uv 0.12.22 (x86_64-unknown-linux-gnu)
+Python 3.12.15
+meltano, version 4.4.0
+3.2.2
+meltano, version 4.4.0
+postgres (PostgreSQL) 16.13 (Debian 16.13-1.pgdg13+1)
+["kindest/node@sha256:07b2536e30b803ed61d1677a79df6115f798ce64c80f9e22f6ed45afd09323c0"]
+2026-10-05T02:14:20.311183Z [info     ] meltano      Meltano 4.4.0, Python 3.12.15, Linux (x86_64)
+2026-10-05T02:14:20.362905Z [info     ] meltano      Environment 'dev' is active
+tap-csv v1.2.0, Meltano SDK v0.53.7
+2026-10-05T02:14:21.804876Z [info     ] meltano      Meltano 4.4.0, Python 3.12.15, Linux (x86_64)
+2026-10-05T02:14:21.852255Z [info     ] meltano      Environment 'dev' is active
+target-postgres v0.8.0, Meltano SDK v0.54.7
+Verificacao do ambiente concluida.
+BANVIC_HOME override verified: download and check use the selected directory.

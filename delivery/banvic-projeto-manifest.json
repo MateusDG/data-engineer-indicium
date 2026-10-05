@@ -1,0 +1,10 @@
+{
+  "file": "banvic-projeto.zip",
+  "files": 164,
+  "archive_integrity": "passed",
+  "workspace_bytes_match": true,
+  "required_artifacts_present": true,
+  "actual_credentials_found": 0,
+  "source_rows_and_private_state_included": false,
+  "sha256": "736acfd32f29b9944414363a437fc15763e1eeee6a10908a9233090cd4f8f8a7"
+}

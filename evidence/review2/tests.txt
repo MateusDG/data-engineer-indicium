@@ -1,0 +1,27 @@
+Command: bash scripts/test.sh --integration
+test_digest_preserves_cells_and_duplicate_multiplicity (test_source.SourceTests.test_digest_preserves_cells_and_duplicate_multiplicity) ... ok
+test_duplicate_keys_and_changed_schema_are_rejected (test_source.SourceTests.test_duplicate_keys_and_changed_schema_are_rejected) ... ok
+test_invalid_width_and_date_are_rejected (test_source.SourceTests.test_invalid_width_and_date_are_rejected) ... ok
+test_missing_table_blocks_snapshot (test_source.SourceTests.test_missing_table_blocks_snapshot) ... ok
+test_official_zip_contract (test_source.SourceTests.test_official_zip_contract) ... ok
+test_path_traversal_is_rejected (test_source.SourceTests.test_path_traversal_is_rejected) ... ok
+test_retry_freezes_original_source_and_detects_tampering (test_source.SourceTests.test_retry_freezes_original_source_and_detects_tampering) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.546s
+
+OK
+test_excludes_nested_secrets_state_and_source_data (test_delivery.DeliveryTests.test_excludes_nested_secrets_state_and_source_data) ... ok
+test_includes_code_and_public_evidence_without_git (test_delivery.DeliveryTests.test_includes_code_and_public_evidence_without_git) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.016s
+
+OK
+DAG import, task count and cycle checks passed
+pod/banvic-integration-tests condition met
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 3.959s
+
+OK

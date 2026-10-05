@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-export PATH="$HOME/.local/bin:$PATH"
+source "$(dirname "$0")/common.sh"
 
 for banvic_command in docker git kind kubectl terraform helm uv meltano; do
   if ! command -v "$banvic_command" >/dev/null; then
@@ -33,5 +33,5 @@ fi
 cd "$banvic_plugin_project"
 meltano invoke tap-csv --version
 meltano invoke target-postgres --version
-test -f "$HOME/banvic-local/downloads/airflow-1.22.0.tgz"
+test -f "$BANVIC_HOME/downloads/airflow-1.22.0.tgz"
 echo 'Verificacao do ambiente concluida.'

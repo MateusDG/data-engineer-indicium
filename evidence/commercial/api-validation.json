@@ -1,0 +1,20 @@
+{
+  "verified_at": "2026-10-05T12:09:56.300274+00:00",
+  "source_run_id": "scheduled__2026-10-05T09:00:00+00:00",
+  "checks": [
+    "health_and_unauthenticated_access",
+    "authentication_cookie_and_security_headers",
+    "coverage_and_partial_month_default",
+    "source_reconciliation_and_customer_denominators",
+    "channel_and_agency_filters",
+    "invalid_scopes_rejected",
+    "adjusted_contrasts_and_identification_gate",
+    "power_planning_and_scope",
+    "four_aggregate_csv_exports_with_traceability",
+    "logout_invalidates_browser_access"
+  ],
+  "check_groups_passed": 10,
+  "exported_aggregate_rows": 21,
+  "individual_identifiers_exposed": 0,
+  "causally_identified_count": 0
+}

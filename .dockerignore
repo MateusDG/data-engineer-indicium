@@ -11,3 +11,4 @@ banvic-dbt
 data
 delivery
 evidence
+**/node_modules

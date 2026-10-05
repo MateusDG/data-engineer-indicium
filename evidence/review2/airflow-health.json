@@ -1,0 +1,17 @@
+{
+  "metadatabase": {
+    "status": "healthy"
+  },
+  "scheduler": {
+    "status": "healthy",
+    "latest_scheduler_heartbeat": "2026-10-05T02:13:52.066994+00:00"
+  },
+  "triggerer": {
+    "status": null,
+    "latest_triggerer_heartbeat": null
+  },
+  "dag_processor": {
+    "status": "healthy",
+    "latest_dag_processor_heartbeat": "2026-10-05T02:13:50.449896+00:00"
+  }
+}

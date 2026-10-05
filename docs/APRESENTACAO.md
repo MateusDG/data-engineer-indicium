@@ -1,5 +1,9 @@
 # Apresentação e vídeo
 
+A extensão comercial posterior está documentada em `DASHBOARD_COMERCIAL.md`, `RESULTADOS_COMERCIAIS.md` e `METODOLOGIA_CAUSAL.md`, com capturas reais em `evidence/commercial/`. A apresentação e o vídeo anteriores registram o escopo de engenharia da época e não demonstram as novas telas. Conforme solicitado, não foram recriados nem gravados nesta extensão.
+
+**Escopo da segunda revisão (04/10/2026):** conforme solicitado, não houve gravação, narração, edição ou geração de vídeo. Os arquivos existentes abaixo foram preservados como materiais anteriores. O requisito de vídeo de três a cinco minutos permanece no enunciado da certificação; esta revisão técnica não o revalidou. A apresentação existente passou novamente pela verificação de integridade e quantidade de slides.
+
 ## Arquivos
 
 - `delivery/BanVic-Apresentacao-Final.pptx`: oito slides com texto, diagrama e tabelas editáveis. A captura do Airflow permanece como imagem real.

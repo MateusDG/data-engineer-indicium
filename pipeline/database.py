@@ -20,6 +20,7 @@ def connect():
 
 def bootstrap(conn):
     conn.execute((Path(__file__).resolve().parent.parent / "sql/bootstrap.sql").read_text())
+    conn.execute((Path(__file__).resolve().parent.parent / "sql/commercial.sql").read_text())
 
 
 def start_run(conn, manifest):

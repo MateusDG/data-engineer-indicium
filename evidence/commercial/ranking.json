@@ -1,0 +1,675 @@
+{
+  "quarter": "2022-Q4",
+  "scope": {
+    "channel": "all",
+    "agency": "all"
+  },
+  "eligible_clients": 888,
+  "timeline": {
+    "baseline": [
+      "2022-04-01",
+      "2022-06-30"
+    ],
+    "exposure": [
+      "2022-07-01",
+      "2022-09-30"
+    ],
+    "outcome": [
+      "2022-10-01",
+      "2022-12-31"
+    ],
+    "sensitivity": [
+      "2022-10-01",
+      "2022-11-30"
+    ]
+  },
+  "method": {
+    "estimator": "AIPW com cross-fitting estratificado de 5 folds",
+    "propensity": "Regressão logística regularizada (C=0,5)",
+    "outcome_model": "Ridge (alpha=5)",
+    "seed": 20261004,
+    "support": [
+      0.05,
+      0.95
+    ],
+    "confidence": "IC individual de 95% e IC simultâneo de 95% por Bonferroni, família pré-definida de 8 contrastes/desfechos.",
+    "multiplicity": "Holm para 4 exposições × 2 desfechos principais. Sensibilidade e seleção prévia são diagnósticos exploratórios.",
+    "unit": "Um cliente por linha; transações/cliente/mês e atividade no trimestre.",
+    "ranking": "Prioridade de validação, baseada no limite inferior do IC simultâneo. Não é ranking de retorno financeiro ou de efeito causal identificado."
+  },
+  "causally_identified_count": 0,
+  "causal_ranking": [],
+  "rows": [
+    {
+      "id": "credit_card",
+      "title": "Uso do cartão de crédito",
+      "definition": "Ao menos uma compra no crédito no trimestre anterior",
+      "action": "Testar ativação e orientação de uso do cartão entre clientes elegíveis.",
+      "missing": "Não há limite, disponibilidade do cartão, renda ou campanhas de ativação.",
+      "estimable": true,
+      "sample": 888,
+      "treated": 301,
+      "control": 587,
+      "supported_clients": 852,
+      "support_share": 0.9594594594594594,
+      "effective_sample": {
+        "0": 508.0997566094157,
+        "1": 174.81883401165507
+      },
+      "max_weighted_smd": 0.11366019320372135,
+      "balance": [
+        {
+          "feature": "days_since_previous_transaction",
+          "before": 0.7520669300062967,
+          "after": 0.11366019320372135
+        },
+        {
+          "feature": "agency_5",
+          "before": 0.10107145654404136,
+          "after": 0.07407803454882948
+        },
+        {
+          "feature": "city_Porto Alegre",
+          "before": 0.10107145654404136,
+          "after": 0.07407803454882948
+        },
+        {
+          "feature": "agency_1",
+          "before": 0.05308242557252653,
+          "after": 0.054984639479872116
+        },
+        {
+          "feature": "agency_4",
+          "before": 0.03060229169692172,
+          "after": 0.05232438215464483
+        },
+        {
+          "feature": "city_Osasco",
+          "before": 0.03060229169692172,
+          "after": 0.05232438215464483
+        },
+        {
+          "feature": "agency_3",
+          "before": 0.07717018058267462,
+          "after": 0.04864216676237456
+        },
+        {
+          "feature": "city_Campinas",
+          "before": 0.07717018058267462,
+          "after": 0.04864216676237456
+        },
+        {
+          "feature": "city_São Paulo",
+          "before": 0.000357485061232111,
+          "after": 0.048265041285851226
+        },
+        {
+          "feature": "agency_2",
+          "before": 0.11877951819546594,
+          "after": 0.0407575108077072
+        }
+      ],
+      "propensity_histogram": [
+        158,
+        75,
+        127,
+        153,
+        180,
+        151,
+        40,
+        4,
+        0,
+        0
+      ],
+      "diagnostics_pass": true,
+      "naive_difference": [
+        3.1941172808412572,
+        0.34326237923559744,
+        1.0325151256176177,
+        0.39702977581825527
+      ],
+      "identification": {
+        "identified": false,
+        "status": "exploratory",
+        "reason": "Ação comercial e atribuição de tratamento não registradas."
+      },
+      "causal_rank": null,
+      "observational_rank": 1,
+      "transaction_effect": {
+        "estimate": 1.1308889873159653,
+        "standard_error": 0.5822343883051804,
+        "ci95": [
+          -0.0102904137621882,
+          2.2720683883941186
+        ],
+        "simultaneous_ci95": [
+          -0.4611545505119572,
+          2.7229325251438876
+        ],
+        "p_value": 0.05209764805946541,
+        "holm_p_value": 0.20839059223786163
+      },
+      "retention_effect": {
+        "estimate": 0.23368956791341583,
+        "standard_error": 0.03555444717626767,
+        "ci95": [
+          0.1640028514479312,
+          0.30337628437890046
+        ],
+        "simultaneous_ci95": [
+          0.13647059733218686,
+          0.3309085384946448
+        ],
+        "p_value": 4.940298709033524e-11,
+        "holm_p_value": 3.458209096323467e-10
+      },
+      "sensitivity_effect": {
+        "estimate": 0.7741673973165123,
+        "standard_error": 0.21619010056232413,
+        "ci95": [
+          0.350434800214357,
+          1.1978999944186675
+        ],
+        "simultaneous_ci95": [
+          0.1830239343814246,
+          1.3653108602516
+        ],
+        "p_value": 0.00034233834058570615
+      },
+      "selection_check": {
+        "estimate": -0.158487715564344,
+        "standard_error": 0.10889746317207467,
+        "ci95": [
+          -0.37192674338161036,
+          0.05495131225292238
+        ],
+        "simultaneous_ci95": [
+          -0.4562535397947111,
+          0.13927810866602314
+        ],
+        "p_value": 0.14556275465716545
+      },
+      "sensitivity_direction_stable": true,
+      "priority_basis": "Limite inferior do intervalo simultâneo de transações por cliente/mês, somente entre contrastes com diagnóstico aprovado.",
+      "evidence_status": "Associação ajustada"
+    },
+    {
+      "id": "pix",
+      "title": "Uso do Pix",
+      "definition": "Ao menos um Pix realizado no trimestre anterior",
+      "action": "Testar onboarding do Pix para clientes que ainda não o utilizam.",
+      "missing": "Uso observado não registra convite, incentivo nem adesão aleatória.",
+      "estimable": true,
+      "sample": 888,
+      "treated": 309,
+      "control": 579,
+      "supported_clients": 861,
+      "support_share": 0.9695945945945946,
+      "effective_sample": {
+        "0": 499.6580028810132,
+        "1": 190.73229966471789
+      },
+      "max_weighted_smd": 0.07330160932126528,
+      "balance": [
+        {
+          "feature": "agency_1",
+          "before": 0.1266345096629696,
+          "after": 0.07330160932126528
+        },
+        {
+          "feature": "agency_5",
+          "before": 0.05376128017600835,
+          "after": 0.06448708334449048
+        },
+        {
+          "feature": "city_Porto Alegre",
+          "before": 0.05376128017600835,
+          "after": 0.06448708334449048
+        },
+        {
+          "feature": "city_São Paulo",
+          "before": 0.01118004778096013,
+          "after": 0.057038159117601635
+        },
+        {
+          "feature": "relationship_years",
+          "before": 0.5123521969550272,
+          "after": 0.045723977124070864
+        },
+        {
+          "feature": "age",
+          "before": 0.10435307016613606,
+          "after": 0.043699818036847464
+        },
+        {
+          "feature": "agency_2",
+          "before": 0.16794671809847045,
+          "after": 0.03899434703494105
+        },
+        {
+          "feature": "agency_6",
+          "before": 0.03856774740309499,
+          "after": 0.0331578766555258
+        },
+        {
+          "feature": "city_Rio de Janeiro",
+          "before": 0.03856774740309499,
+          "after": 0.0331578766555258
+        },
+        {
+          "feature": "days_since_previous_transaction",
+          "before": 0.7831591152499863,
+          "after": 0.029038354922069496
+        }
+      ],
+      "propensity_histogram": [
+        136,
+        97,
+        116,
+        161,
+        148,
+        151,
+        73,
+        6,
+        0,
+        0
+      ],
+      "diagnostics_pass": true,
+      "naive_difference": [
+        3.0554577415586452,
+        0.35196270771500915,
+        1.0451900665694118,
+        0.46520336927299
+      ],
+      "identification": {
+        "identified": false,
+        "status": "exploratory",
+        "reason": "Ação comercial e atribuição de tratamento não registradas."
+      },
+      "causal_rank": null,
+      "observational_rank": 2,
+      "transaction_effect": {
+        "estimate": 0.9220871359034347,
+        "standard_error": 0.5498028310124822,
+        "ci95": [
+          -0.15552641288103042,
+          1.9997006846879
+        ],
+        "simultaneous_ci95": [
+          -0.5812765639646714,
+          2.425450835771541
+        ],
+        "p_value": 0.09351837427755774,
+        "holm_p_value": 0.28055512283267325
+      },
+      "retention_effect": {
+        "estimate": 0.2576001529189212,
+        "standard_error": 0.0315263902048067,
+        "ci95": [
+          0.19580842811750004,
+          0.31939187772034233
+        ],
+        "simultaneous_ci95": [
+          0.17139537559083245,
+          0.3438049302470099
+        ],
+        "p_value": 3.060030303575709e-16,
+        "holm_p_value": 2.4480242428605673e-15
+      },
+      "sensitivity_effect": {
+        "estimate": 0.7560747422778098,
+        "standard_error": 0.21238611754615874,
+        "ci95": [
+          0.3397979518873387,
+          1.172351532668281
+        ],
+        "simultaneous_ci95": [
+          0.1753327717666271,
+          1.3368167127889925
+        ],
+        "p_value": 0.00037098671277435783
+      },
+      "selection_check": {
+        "estimate": -0.02191290094480716,
+        "standard_error": 0.10888964457635221,
+        "ci95": [
+          -0.2353366043144575,
+          0.19151080242484317
+        ],
+        "simultaneous_ci95": [
+          -0.3196573462510762,
+          0.27583154436146196
+        ],
+        "p_value": 0.8405112828739357
+      },
+      "sensitivity_direction_stable": true,
+      "priority_basis": "Limite inferior do intervalo simultâneo de transações por cliente/mês, somente entre contrastes com diagnóstico aprovado.",
+      "evidence_status": "Associação ajustada"
+    },
+    {
+      "id": "diversity",
+      "title": "Relacionamento com 3+ modalidades",
+      "definition": "Três ou mais modalidades de transação no trimestre anterior",
+      "action": "Testar uma oferta de relacionamento com serviços complementares.",
+      "missing": "Diversificação é comportamento escolhido pelo cliente, sem intervenção registrada.",
+      "estimable": true,
+      "sample": 888,
+      "treated": 234,
+      "control": 654,
+      "supported_clients": 754,
+      "support_share": 0.8490990990990991,
+      "effective_sample": {
+        "0": 507.2705005890672,
+        "1": 150.32886976757544
+      },
+      "max_weighted_smd": 0.14763001577005513,
+      "balance": [
+        {
+          "feature": "agency_5",
+          "before": 0.06310854988160075,
+          "after": 0.14763001577005513
+        },
+        {
+          "feature": "city_Porto Alegre",
+          "before": 0.06310854988160075,
+          "after": 0.14763001577005513
+        },
+        {
+          "feature": "days_since_previous_transaction",
+          "before": 0.6003853220344985,
+          "after": 0.08479519695845346
+        },
+        {
+          "feature": "agency_2",
+          "before": 0.16886768728177917,
+          "after": 0.06584603552734802
+        },
+        {
+          "feature": "city_São Paulo",
+          "before": 0.0027439218681849986,
+          "after": 0.06261064905409411
+        },
+        {
+          "feature": "agency_3",
+          "before": 0.07859858211362468,
+          "after": 0.04800742706534257
+        },
+        {
+          "feature": "city_Campinas",
+          "before": 0.07859858211362468,
+          "after": 0.04800742706534257
+        },
+        {
+          "feature": "age",
+          "before": 0.029721757250951556,
+          "after": 0.04248051209868113
+        },
+        {
+          "feature": "agency_6",
+          "before": 0.0023632338102333333,
+          "after": 0.03449059806565968
+        },
+        {
+          "feature": "city_Rio de Janeiro",
+          "before": 0.0023632338102333333,
+          "after": 0.03449059806565968
+        }
+      ],
+      "propensity_histogram": [
+        200,
+        109,
+        164,
+        215,
+        172,
+        27,
+        1,
+        0,
+        0,
+        0
+      ],
+      "diagnostics_pass": true,
+      "naive_difference": [
+        2.7939961839044374,
+        0.3215713949658904,
+        1.0993491727436682,
+        0.5034370997673754
+      ],
+      "identification": {
+        "identified": false,
+        "status": "exploratory",
+        "reason": "Ação comercial e atribuição de tratamento não registradas."
+      },
+      "causal_rank": null,
+      "observational_rank": 3,
+      "transaction_effect": {
+        "estimate": 0.3965481647825378,
+        "standard_error": 0.6262392383825175,
+        "ci95": [
+          -0.8308807424471965,
+          1.623977072012272
+        ],
+        "simultaneous_ci95": [
+          -1.3158208615529274,
+          2.108917191118003
+        ],
+        "p_value": 0.5265889919782707,
+        "holm_p_value": 0.5265889919782707
+      },
+      "retention_effect": {
+        "estimate": 0.17746134136128985,
+        "standard_error": 0.0332953589052278,
+        "ci95": [
+          0.11220243790704337,
+          0.24272024481553633
+        ],
+        "simultaneous_ci95": [
+          0.08641955123441551,
+          0.2685031314881642
+        ],
+        "p_value": 9.826023073051835e-08,
+        "holm_p_value": 5.895613843831101e-07
+      },
+      "sensitivity_effect": {
+        "estimate": 0.7323689599844216,
+        "standard_error": 0.2272916808708815,
+        "ci95": [
+          0.2868772654774939,
+          1.1778606544913495
+        ],
+        "simultaneous_ci95": [
+          0.11086968237242334,
+          1.35386823759642
+        ],
+        "p_value": 0.0012723041530934294
+      },
+      "selection_check": {
+        "estimate": 0.07594758630781058,
+        "standard_error": 0.13454271063132564,
+        "ci95": [
+          -0.18775612652958767,
+          0.3396512991452088
+        ],
+        "simultaneous_ci95": [
+          -0.29194180209805165,
+          0.4438369747136728
+        ],
+        "p_value": 0.572422870321756
+      },
+      "sensitivity_direction_stable": true,
+      "priority_basis": "Limite inferior do intervalo simultâneo de transações por cliente/mês, somente entre contrastes com diagnóstico aprovado.",
+      "evidence_status": "Associação ajustada"
+    },
+    {
+      "id": "digital",
+      "title": "Relacionamento na agência digital",
+      "definition": "Conta vinculada à agência digital no snapshot",
+      "action": "Testar assistência digital entre clientes de agências físicas.",
+      "missing": "Uma única agência digital; não há histórico de migração nem uso de aplicativo.",
+      "estimable": true,
+      "sample": 888,
+      "treated": 400,
+      "control": 488,
+      "supported_clients": 704,
+      "support_share": 0.7927927927927928,
+      "effective_sample": {
+        "0": 184.15415922994572,
+        "1": 374.7475104577437
+      },
+      "max_weighted_smd": 0.33620339006725974,
+      "balance": [
+        {
+          "feature": "city_São Paulo",
+          "before": 0.7506936610128508,
+          "after": 0.33620339006725974
+        },
+        {
+          "feature": "city_Porto Alegre",
+          "before": 0.33278463611634435,
+          "after": 0.1491416644069462
+        },
+        {
+          "feature": "city_Florianópolis",
+          "before": 0.3216593858683592,
+          "after": 0.1453814522576155
+        },
+        {
+          "feature": "city_Rio de Janeiro",
+          "before": 0.3216593858683592,
+          "after": 0.1430317158182471
+        },
+        {
+          "feature": "city_Campinas",
+          "before": 0.27356595737399436,
+          "after": 0.1217267722155227
+        },
+        {
+          "feature": "city_Osasco",
+          "before": 0.2603909314172432,
+          "after": 0.1169570838831642
+        },
+        {
+          "feature": "age",
+          "before": 0.05045173976043051,
+          "after": 0.016418420386944813
+        },
+        {
+          "feature": "baseline_transactions",
+          "before": 0.051180871638129705,
+          "after": 0.01592653103285372
+        },
+        {
+          "feature": "baseline_modalities",
+          "before": 0.07583819603710432,
+          "after": 0.014744766703497036
+        },
+        {
+          "feature": "days_since_previous_transaction",
+          "before": 0.34950223093673916,
+          "after": 0.014294812227272384
+        }
+      ],
+      "propensity_histogram": [
+        250,
+        51,
+        36,
+        28,
+        64,
+        70,
+        105,
+        125,
+        153,
+        6
+      ],
+      "diagnostics_pass": false,
+      "naive_difference": [
+        2.5694672131147644,
+        0.15754098360655744,
+        0.4457377049180329,
+        -0.06602459016393436
+      ],
+      "identification": {
+        "identified": false,
+        "status": "exploratory",
+        "reason": "Ação comercial e atribuição de tratamento não registradas."
+      },
+      "causal_rank": null,
+      "observational_rank": null,
+      "transaction_effect": {
+        "estimate": -1.7898387682448311,
+        "standard_error": 0.5752872540579044,
+        "ci95": [
+          -2.9174017861983237,
+          -0.6622757502913386
+        ],
+        "simultaneous_ci95": [
+          -3.3628862790311462,
+          -0.2167912574585158
+        ],
+        "p_value": 0.0018632314034835937,
+        "holm_p_value": 0.009316157017417968
+      },
+      "retention_effect": {
+        "estimate": -0.04581349558014163,
+        "standard_error": 0.029550411205323316,
+        "ci95": [
+          -0.10373230154257533,
+          0.012105310382292067
+        ],
+        "simultaneous_ci95": [
+          -0.12661521760919794,
+          0.034988226448914674
+        ],
+        "p_value": 0.12105740610849386,
+        "holm_p_value": 0.28055512283267325
+      },
+      "sensitivity_effect": {
+        "estimate": -0.16468422940968352,
+        "standard_error": 0.1957388086081974,
+        "ci95": [
+          -0.5483322942817503,
+          0.21896383546238335
+        ],
+        "simultaneous_ci95": [
+          -0.69990631798113,
+          0.37053785916176296
+        ],
+        "p_value": 0.40015365346107956
+      },
+      "selection_check": {
+        "estimate": -0.4286901906233733,
+        "standard_error": 0.15137773998974013,
+        "ci95": [
+          -0.725390561003264,
+          -0.13198982024348266
+        ],
+        "simultaneous_ci95": [
+          -0.8426127578272538,
+          -0.014767623419492837
+        ],
+        "p_value": 0.004626890605247474
+      },
+      "sensitivity_direction_stable": true,
+      "priority_basis": "Limite inferior do intervalo simultâneo de transações por cliente/mês, somente entre contrastes com diagnóstico aprovado.",
+      "evidence_status": "Comparabilidade limitada"
+    }
+  ],
+  "blocked": [
+    {
+      "id": "approved_credit",
+      "title": "Concessão de crédito",
+      "reason": "Há status atual e data de entrada da proposta, mas não data de aprovação/desembolso nem decisões finais do grupo de controle. Estimar após a entrada geraria classificação temporal incorreta."
+    },
+    {
+      "id": "marketing",
+      "title": "Investimento em marketing",
+      "reason": "Não há campanhas, exposição, atribuição aleatória, custos ou margem por transação. ROI causal não identificável."
+    }
+  ],
+  "decision": "Usar os contrastes como hipóteses para testes controlados. Nenhuma alavanca nesta fonte tem retorno causal ou financeiro garantido.",
+  "source": {
+    "run_id": "scheduled__2026-10-05T09:00:00+00:00",
+    "sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+    "published_at": "2026-10-05T11:51:49.009875+00:00",
+    "loaded_at": "2026-10-05T12:09:12.172366+00:00"
+  }
+}

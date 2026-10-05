@@ -1,0 +1,11 @@
+{
+  "source_tests": 7,
+  "delivery_tests": 3,
+  "database_integration_tests": 5,
+  "commercial_tests": 15,
+  "total_tests_passed": 30,
+  "dag_import_and_cycles": "passed",
+  "terraform_format": "passed",
+  "shell_syntax": "passed",
+  "recording_or_video_generation_executed": false
+}

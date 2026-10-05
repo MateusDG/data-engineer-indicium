@@ -4,7 +4,7 @@
 
 A POC centraliza as sete cópias do ERP fornecidas no arquivo oficial `Dados Banvic.zip`. O nome de entrega no volume é `banvic_data.zip`; o conteúdo do arquivo permanece intacto. Não utiliza os dados do repositório dbt ou do Kaggle como fonte substituta.
 
-O desafio de Engenharia de Dados exige infraestrutura, ingestão, orquestração e demonstração. As views analíticas oferecem um ponto de partida para BI. Um dashboard comercial completo, previsão de churn ou ranking causal de investimentos exigem uma etapa adicional com definições de negócio e validação estatística. Correlações históricas não garantem retorno de um investimento.
+O desafio de Engenharia de Dados exige infraestrutura, ingestão, orquestração e demonstração. A extensão comercial entrega dashboard, indicadores de inatividade e ranking de hipóteses para validação. Não há rótulos para um modelo de churn confirmado nem intervenções/custos para identificar retorno causal de investimentos. As regras e os limites estatísticos estão documentados nos guias comerciais.
 
 ## Componentes
 
@@ -39,6 +39,9 @@ flowchart TB
   PG --> RAW[raw / sete tabelas preservadas]
   PG --> AUDIT[audit / execução, validação e snapshot atual]
   PG --> BI[analytics / views SQL para BI]
+  BI --> COMM[API comercial / leitura consistente]
+  COMM --> DASH[Dashboard / seis áreas]
+  COMM --> RANK[Contrastes ajustados / plano de validação]
 ```
 
 ## Escolhas
@@ -46,7 +49,7 @@ flowchart TB
 | Decisão | Motivo e limite |
 |---|---|
 | Kind com um nó | Kubernetes real, local e reproduzível. A persistência depende deste computador. |
-| Terraform em duas etapas | A primeira provisiona namespace, armazenamento e PostgreSQL. Os Secrets entram por um canal separado. A segunda instala o chart oficial do Airflow. |
+| Terraform em três módulos | Platform provisiona namespace, armazenamento e PostgreSQL; Airflow instala o chart oficial; commercial acrescenta o serviço analítico depois da primeira publicação. Secrets entram por um canal separado. |
 | Chart Airflow 1.22.0 | Reduz configuração manual dos componentes e permite acompanhar a release com Terraform. |
 | LocalExecutor e KubernetesPodOperator | Poucos serviços permanentes. Cada tarefa de ingestão executa em um pod com dependências próprias. |
 | Meltano com tap-csv e target-postgres | Extração e carga pelo protocolo Singer. Não substituímos a ferramenta exigida por um carregador Python próprio. |
@@ -92,6 +95,16 @@ Há duas tentativas adicionais com espera crescente. Uma tarefa específica regi
 
 Para esta POC, staging e snapshots são preservados para inspeção e testes. Em operação contínua, aplicar retenção somente às execuções encerradas, com backup, e dimensionar o crescimento dos volumes. Não há limpeza automática de evidências durante a certificação.
 
-## Referências
+## Camada comercial
+
+A extensão em `commercial/` lê as views tipadas com a conta de analista, em transação REPEATABLE READ e READ ONLY. O marcador `audit.current_snapshot` faz parte da mesma leitura. Um cache em memória verifica esse marcador a cada 30 segundos e invalida os resultados ao mudar a execução; dados individuais permanecem no servidor. A interface e as exportações recebem somente agregados.
+
+`infra/commercial` provisiona um Deployment, uma service account sem token e um Service ClusterIP. A imagem `banvic-commercial:1.0.0` inclui FastAPI, cálculo comercial, estimador AIPW e ECharts local. O pod executa como usuário 1000, sem capabilities, sem escalada de privilégios e com filesystem somente de leitura. A porta 8090 é exposta localmente por port-forward.
+
+O bootstrap passa a configurar oito Secrets. `banvic-commercial` contém a conexão de leitura, a senha de acesso ao dashboard e a chave de assinatura de sessões; os três estados Terraform continuam sem valores de credenciais. O código de bootstrap cria as views comerciais também em uma instalação nova, dentro do fluxo de ingestão.
+
+O serviço não publica efeitos causais sem identificação. Na fonte atual, comportamentos são comparados com ajuste temporal e diagnósticos, mas não há ação comercial registrada, custos ou confundidores suficientes para validar causalidade de investimentos. O [guia comercial](DASHBOARD_COMERCIAL.md) documenta o consumo; a [metodologia](METODOLOGIA_CAUSAL.md) declara as hipóteses e limites.
+
+## Referências técnicas
 
 [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/), [Terraform Kubernetes Provider](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs), [chart oficial Airflow](https://airflow.apache.org/docs/helm-chart/stable/index.html), [KubernetesPodOperator](https://airflow.apache.org/docs/apache-airflow-providers-cncf-kubernetes/stable/operators.html), [SimpleAuthManager](https://airflow.apache.org/docs/apache-airflow/3.2.2/core-concepts/auth-manager/simple/index.html), [Meltano run](https://docs.meltano.com/reference/command-line-interface/#run), [tap-csv](https://github.com/MeltanoLabs/tap-csv), [target-postgres](https://github.com/MeltanoLabs/target-postgres).

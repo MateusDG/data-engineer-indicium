@@ -1,0 +1,12 @@
+{
+  "login_and_views": {
+    "transacoes_mensais": 71999,
+    "atividade_transacoes": 71999,
+    "propostas": 2000
+  },
+  "permission_denied": {
+    "insert_raw": true,
+    "create_raw": true,
+    "metadata_database": true
+  }
+}

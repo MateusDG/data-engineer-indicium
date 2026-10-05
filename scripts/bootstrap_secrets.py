@@ -13,6 +13,7 @@ parser.add_argument("--home", type=Path, required=True)
 args = parser.parse_args()
 directory = args.home / "secrets"
 directory.mkdir(mode=0o700, exist_ok=True)
+os.chmod(directory, 0o700)
 path = directory / "credentials.json"
 if path.exists():
     credentials = json.loads(path.read_text())
@@ -24,6 +25,14 @@ else:
     with os.fdopen(descriptor, "w") as file:
         json.dump(credentials, file, indent=2)
 os.chmod(path, 0o600)
+if 'dashboard_admin' not in credentials or 'dashboard_session' not in credentials:
+    credentials.setdefault('dashboard_admin', secrets.token_urlsafe(32))
+    credentials.setdefault('dashboard_session', secrets.token_urlsafe(32))
+    temporary = directory / '.credentials-commercial.tmp'
+    descriptor = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+    with os.fdopen(descriptor, 'w') as file:
+        json.dump(credentials, file, indent=2)
+    temporary.replace(path)
 secrets_data = {
     "banvic-postgres-admin": {"POSTGRES_USER": "postgres", "POSTGRES_DB": "postgres",
         "POSTGRES_PASSWORD": credentials["postgres"], "ETL_PASSWORD": credentials["etl"],
@@ -35,6 +44,10 @@ secrets_data = {
     "banvic-airflow-api": {"api-secret-key": credentials["api_key"]},
     "banvic-airflow-jwt": {"jwt-secret": credentials["jwt_key"]},
     "banvic-airflow-auth": {"passwords.json": json.dumps({"admin": credentials["airflow_admin"]})},
+    "banvic-commercial": {"PGHOST":"postgres", "PGPORT":"5432", "PGDATABASE":"banvic_dw",
+        "PGUSER":"banvic_analyst", "PGPASSWORD":credentials["analyst"],
+        "DASHBOARD_USER":"comercial", "DASHBOARD_PASSWORD":credentials["dashboard_admin"],
+        "DASHBOARD_SESSION_KEY":credentials["dashboard_session"]},
 }
 items = [{"apiVersion": "v1", "kind": "Secret", "metadata": {"name": name, "namespace": "banvic"},
           "type": "Opaque", "stringData": values} for name, values in secrets_data.items()]
@@ -43,4 +56,4 @@ result = subprocess.run(["kubectl", "apply", "--server-side", "--field-manager=b
                         capture_output=True)
 if result.returncode:
     raise RuntimeError("Secret installation failed; verify Kubernetes context and namespace")
-print("Seven Kubernetes Secrets configured. Credentials remain in the private WSL directory.")
+print("Eight Kubernetes Secrets configured. Credentials remain in the private WSL directory.")

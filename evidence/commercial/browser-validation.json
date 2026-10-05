@@ -1,0 +1,43 @@
+{
+  "verified_at": "2026-10-05T12:05:14.276Z",
+  "screens_verified": [
+    "overview",
+    "activity",
+    "network",
+    "credit",
+    "levers",
+    "method"
+  ],
+  "tested_viewports": [
+    {
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "desktop_layout": {
+    "pageWidth": 1425,
+    "viewport": 1440,
+    "visibleHeading": "Alavancas comerciais"
+  },
+  "checks": [
+    "agency_search_and_drilldown",
+    "reset_filters",
+    "all_history_and_digital_channel",
+    "custom_dates_and_partial_month_warning",
+    "cohort_future_cells",
+    "evidence_modal",
+    "experiment_planner",
+    "mobile_navigation"
+  ],
+  "csv_download": {
+    "completed": true,
+    "file": "banvic-evidence-2022-10-01-2022-12-31.csv",
+    "aggregate_rows": 4
+  },
+  "javascript_console_errors": 0,
+  "recording_executed": false
+}

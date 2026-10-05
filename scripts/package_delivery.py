@@ -2,11 +2,11 @@
 import zipfile
 from pathlib import Path
 
-DIRECTORIES = ["config", "dags", "docker", "infra", "meltano", "pipeline", "scripts", "sql", "tests", "docs", "evidence"]
+DIRECTORIES = ["commercial", "config", "dags", "docker", "infra", "meltano", "pipeline", "scripts", "sql", "tests", "docs", "evidence"]
 ROOT_FILES = ["README.md", ".gitignore", ".gitattributes", ".dockerignore"]
 SAFE_SUFFIXES = {".py", ".sh", ".ps1", ".tf", ".hcl", ".yaml", ".yml", ".json",
-                 ".md", ".txt", ".mjs", ".sql", ".html", ".png", ".dockerfile"}
-BLOCKED_DIRECTORIES = {".terraform", ".meltano", "__pycache__", "private", ".venv", ".secrets", ".runtime"}
+                 ".md", ".txt", ".mjs", ".js", ".css", ".svg", ".lock", ".in", ".sql", ".html", ".png", ".dockerfile"}
+BLOCKED_DIRECTORIES = {"node_modules", ".terraform", ".meltano", "__pycache__", "private", ".venv", ".secrets", ".runtime"}
 
 
 def package_project(root: Path, destination: Path) -> list[str]:

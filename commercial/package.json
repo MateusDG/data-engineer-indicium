@@ -1,0 +1,8 @@
+{
+  "name": "banvic-commercial-assets",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Locally served chart assets for the BanVic commercial dashboard",
+  "dependencies": {"echarts": "6.1.0"},
+  "scripts": {"vendor": "node vendor.mjs"}
+}

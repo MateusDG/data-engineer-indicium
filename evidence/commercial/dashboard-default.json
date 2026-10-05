@@ -1,0 +1,479 @@
+{
+  "scope": {
+    "start": "2022-10-01",
+    "end": "2022-12-31",
+    "channel": "all",
+    "agency": "all",
+    "previous_start": "2022-07-01",
+    "previous_end": "2022-09-30"
+  },
+  "kpis": {
+    "transactions": 28532,
+    "registered_client_transactions": 28532,
+    "active_clients": 700,
+    "eligible_clients": 998,
+    "transactions_per_active_client": 40.76,
+    "active_rate": 0.7014028056112225,
+    "active_90d": 699,
+    "gross_movement": 20124786.83,
+    "net_movement": 5811927.53,
+    "unregistered_client_transactions": 0,
+    "new_clients": 43,
+    "inactive_90d": 291,
+    "retained_clients": 427,
+    "previous_active_clients": 467,
+    "retention_rate": 0.9143468950749465,
+    "reactivated_clients": 232
+  },
+  "previous": {
+    "transactions": 3240,
+    "registered_client_transactions": 3240,
+    "active_clients": 467,
+    "eligible_clients": 955,
+    "transactions_per_active_client": 6.937901498929336,
+    "active_rate": 0.48900523560209425,
+    "active_90d": 466,
+    "gross_movement": 2463321.06,
+    "net_movement": 937459.04,
+    "unregistered_client_transactions": 0,
+    "new_clients": 38
+  },
+  "monthly": [
+    {
+      "month": "2022-10",
+      "partial": false,
+      "transactions": 1372,
+      "registered_client_transactions": 1372,
+      "active_clients": 326,
+      "eligible_clients": 970,
+      "transactions_per_active_client": 4.208588957055214,
+      "active_rate": 0.33608247422680415,
+      "active_90d": 522,
+      "gross_movement": 942163.18,
+      "net_movement": 97435.74,
+      "unregistered_client_transactions": 0,
+      "new_clients": 15
+    },
+    {
+      "month": "2022-11",
+      "partial": false,
+      "transactions": 1841,
+      "registered_client_transactions": 1841,
+      "active_clients": 409,
+      "eligible_clients": 979,
+      "transactions_per_active_client": 4.50122249388753,
+      "active_rate": 0.4177732379979571,
+      "active_90d": 591,
+      "gross_movement": 1727648.78,
+      "net_movement": 921909.1,
+      "unregistered_client_transactions": 0,
+      "new_clients": 9
+    },
+    {
+      "month": "2022-12",
+      "partial": false,
+      "transactions": 25319,
+      "registered_client_transactions": 25319,
+      "active_clients": 667,
+      "eligible_clients": 998,
+      "transactions_per_active_client": 37.95952023988006,
+      "active_rate": 0.6683366733466933,
+      "active_90d": 699,
+      "gross_movement": 17454974.87,
+      "net_movement": 4792582.69,
+      "unregistered_client_transactions": 0,
+      "new_clients": 19
+    }
+  ],
+  "mix": [
+    {
+      "name": "Pix",
+      "transactions": 11568,
+      "share": 0.40543950651899624,
+      "gross_movement": 6212236.1
+    },
+    {
+      "name": "Cartão de crédito",
+      "transactions": 8268,
+      "share": 0.2897798962568344,
+      "gross_movement": 453818.3
+    },
+    {
+      "name": "Cartão de débito",
+      "transactions": 5772,
+      "share": 0.2022991728585448,
+      "gross_movement": 317054.85
+    },
+    {
+      "name": "Dinheiro",
+      "transactions": 2076,
+      "share": 0.07276040936492359,
+      "gross_movement": 339296.89
+    },
+    {
+      "name": "Transferências e pagamentos",
+      "transactions": 848,
+      "share": 0.029721015000700967,
+      "gross_movement": 12802380.69
+    }
+  ],
+  "agencies": [
+    {
+      "id": "7",
+      "name": "Agência Digital",
+      "city": "São Paulo",
+      "state": "SP",
+      "channel": "Digital",
+      "transactions": 15069,
+      "registered_client_transactions": 15069,
+      "active_clients": 359,
+      "eligible_clients": 460,
+      "transactions_per_active_client": 41.97493036211699,
+      "active_rate": 0.7804347826086957,
+      "active_90d": 359,
+      "gross_movement": 11556680.05,
+      "net_movement": 4113312.49,
+      "unregistered_client_transactions": 0,
+      "new_clients": 23,
+      "attention_clients": 15
+    },
+    {
+      "id": "2",
+      "name": "Agência Tatuapé",
+      "city": "São Paulo",
+      "state": "SP",
+      "channel": "Física",
+      "transactions": 2066,
+      "registered_client_transactions": 2066,
+      "active_clients": 60,
+      "eligible_clients": 101,
+      "transactions_per_active_client": 34.43333333333333,
+      "active_rate": 0.594059405940594,
+      "active_90d": 59,
+      "gross_movement": 1292828.19,
+      "net_movement": 262335.21,
+      "unregistered_client_transactions": 0,
+      "new_clients": 2,
+      "attention_clients": 4
+    },
+    {
+      "id": "1",
+      "name": "Agência Matriz",
+      "city": "São Paulo",
+      "state": "SP",
+      "channel": "Física",
+      "transactions": 2024,
+      "registered_client_transactions": 2024,
+      "active_clients": 55,
+      "eligible_clients": 118,
+      "transactions_per_active_client": 36.8,
+      "active_rate": 0.4661016949152542,
+      "active_90d": 55,
+      "gross_movement": 1229370.32,
+      "net_movement": -15558.5,
+      "unregistered_client_transactions": 0,
+      "new_clients": 2,
+      "attention_clients": 4
+    },
+    {
+      "id": "5",
+      "name": "Agência Porto Alegre",
+      "city": "Porto Alegre",
+      "state": "RS",
+      "channel": "Física",
+      "transactions": 1864,
+      "registered_client_transactions": 1864,
+      "active_clients": 45,
+      "eligible_clients": 61,
+      "transactions_per_active_client": 41.422222222222224,
+      "active_rate": 0.7377049180327869,
+      "active_90d": 45,
+      "gross_movement": 1480156.54,
+      "net_movement": 594604.84,
+      "unregistered_client_transactions": 0,
+      "new_clients": 3,
+      "attention_clients": 2
+    },
+    {
+      "id": "6",
+      "name": "Agência Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "channel": "Física",
+      "transactions": 1794,
+      "registered_client_transactions": 1794,
+      "active_clients": 44,
+      "eligible_clients": 52,
+      "transactions_per_active_client": 40.77272727272727,
+      "active_rate": 0.8461538461538461,
+      "active_90d": 44,
+      "gross_movement": 994834.69,
+      "net_movement": 266384.09,
+      "unregistered_client_transactions": 0,
+      "new_clients": 2,
+      "attention_clients": 2
+    },
+    {
+      "id": "4",
+      "name": "Agência Osasco",
+      "city": "Osasco",
+      "state": "SP",
+      "channel": "Física",
+      "transactions": 1550,
+      "registered_client_transactions": 1550,
+      "active_clients": 39,
+      "eligible_clients": 65,
+      "transactions_per_active_client": 39.743589743589745,
+      "active_rate": 0.6,
+      "active_90d": 39,
+      "gross_movement": 748318.14,
+      "net_movement": 1237.28,
+      "unregistered_client_transactions": 0,
+      "new_clients": 3,
+      "attention_clients": 0
+    },
+    {
+      "id": "3",
+      "name": "Agência Campinas",
+      "city": "Campinas",
+      "state": "SP",
+      "channel": "Física",
+      "transactions": 1448,
+      "registered_client_transactions": 1448,
+      "active_clients": 41,
+      "eligible_clients": 76,
+      "transactions_per_active_client": 35.31707317073171,
+      "active_rate": 0.5394736842105263,
+      "active_90d": 41,
+      "gross_movement": 875863.66,
+      "net_movement": 255178.88,
+      "unregistered_client_transactions": 0,
+      "new_clients": 1,
+      "attention_clients": 3
+    },
+    {
+      "id": "9",
+      "name": "Agência Florianópolis",
+      "city": "Florianópolis",
+      "state": "SC",
+      "channel": "Física",
+      "transactions": 1353,
+      "registered_client_transactions": 1353,
+      "active_clients": 26,
+      "eligible_clients": 30,
+      "transactions_per_active_client": 52.03846153846154,
+      "active_rate": 0.8666666666666667,
+      "active_90d": 26,
+      "gross_movement": 1144530.88,
+      "net_movement": 167400.02,
+      "unregistered_client_transactions": 0,
+      "new_clients": 3,
+      "attention_clients": 0
+    },
+    {
+      "id": "8",
+      "name": "Agência Jardins",
+      "city": "São Paulo",
+      "state": "SP",
+      "channel": "Física",
+      "transactions": 997,
+      "registered_client_transactions": 997,
+      "active_clients": 26,
+      "eligible_clients": 30,
+      "transactions_per_active_client": 38.34615384615385,
+      "active_rate": 0.8666666666666667,
+      "active_90d": 26,
+      "gross_movement": 528402.57,
+      "net_movement": 54232.15,
+      "unregistered_client_transactions": 0,
+      "new_clients": 1,
+      "attention_clients": 2
+    },
+    {
+      "id": "10",
+      "name": "Agência Recife",
+      "city": "Recife",
+      "state": "PE",
+      "channel": "Física",
+      "transactions": 367,
+      "registered_client_transactions": 367,
+      "active_clients": 5,
+      "eligible_clients": 5,
+      "transactions_per_active_client": 73.4,
+      "active_rate": 1.0,
+      "active_90d": 5,
+      "gross_movement": 273801.79,
+      "net_movement": 112801.07,
+      "unregistered_client_transactions": 0,
+      "new_clients": 3,
+      "attention_clients": 0
+    }
+  ],
+  "segments": [
+    {
+      "name": "Ativo · 0–30 dias",
+      "clients": 667,
+      "share": 0.6683366733466933
+    },
+    {
+      "name": "Inativo · mais de 90 dias",
+      "clients": 291,
+      "share": 0.29158316633266534
+    },
+    {
+      "name": "Atenção · 31–60 dias",
+      "clients": 18,
+      "share": 0.018036072144288578
+    },
+    {
+      "name": "Risco · 61–90 dias",
+      "clients": 14,
+      "share": 0.014028056112224449
+    },
+    {
+      "name": "Sem transação",
+      "clients": 8,
+      "share": 0.008016032064128256
+    }
+  ],
+  "opportunities": [
+    {
+      "segment": "Sem transação",
+      "clients": 8,
+      "top_agencies": {
+        "Agência Digital": 5,
+        "Agência Matriz": 1,
+        "Agência Campinas": 1
+      }
+    },
+    {
+      "segment": "Atenção · 31–60 dias",
+      "clients": 18,
+      "top_agencies": {
+        "Agência Digital": 8,
+        "Agência Campinas": 3,
+        "Agência Porto Alegre": 2
+      }
+    },
+    {
+      "segment": "Risco · 61–90 dias",
+      "clients": 14,
+      "top_agencies": {
+        "Agência Digital": 7,
+        "Agência Matriz": 3,
+        "Agência Tatuapé": 3
+      }
+    },
+    {
+      "segment": "Inativo · mais de 90 dias",
+      "clients": 291,
+      "top_agencies": {
+        "Agência Digital": 96,
+        "Agência Matriz": 62,
+        "Agência Tatuapé": 42
+      }
+    }
+  ],
+  "cohorts": [
+    {
+      "cohort": "2022-10",
+      "clients": 14,
+      "retention": [
+        {
+          "rate": 1.0,
+          "partial": false
+        },
+        {
+          "rate": 0.8571428571428571,
+          "partial": false
+        },
+        {
+          "rate": 1.0,
+          "partial": false
+        },
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "cohort": "2022-11",
+      "clients": 11,
+      "retention": [
+        {
+          "rate": 1.0,
+          "partial": false
+        },
+        {
+          "rate": 1.0,
+          "partial": false
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "cohort": "2022-12",
+      "clients": 16,
+      "retention": [
+        {
+          "rate": 1.0,
+          "partial": false
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  ],
+  "credit": {
+    "proposals": 35,
+    "approved": 13,
+    "approved_share": 0.37142857142857144,
+    "requested_financing": 3897156.95,
+    "approved_requested_financing": 1511158.36,
+    "statuses": [
+      {
+        "status": "Aprovada",
+        "proposals": 13,
+        "requested_financing": 1511158.36,
+        "mean_monthly_rate": 0.017623076923076922
+      },
+      {
+        "status": "Em análise",
+        "proposals": 9,
+        "requested_financing": 940795.34,
+        "mean_monthly_rate": 0.014633333333333332
+      },
+      {
+        "status": "Enviada",
+        "proposals": 8,
+        "requested_financing": 753911.9,
+        "mean_monthly_rate": 0.018275
+      },
+      {
+        "status": "Validação documentos",
+        "proposals": 5,
+        "requested_financing": 691291.35,
+        "mean_monthly_rate": 0.016999999999999998
+      }
+    ],
+    "note": "Status atual das propostas que entraram no período. Não representa desembolso, receita nem conversão acompanhada no tempo."
+  },
+  "warnings": [
+    "2022-12: volume de transações 21.9 vezes a mediana dos seis meses anteriores; causa não registrada na fonte."
+  ],
+  "source": {
+    "run_id": "scheduled__2026-10-05T09:00:00+00:00",
+    "sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+    "published_at": "2026-10-05T11:51:49.009875+00:00",
+    "loaded_at": "2026-10-05T12:09:12.172366+00:00"
+  }
+}

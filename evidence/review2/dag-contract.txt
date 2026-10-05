@@ -1,0 +1,1 @@
+{"tasks": 13, "dependencies": "passed", "schedule": "0 6 * * *", "timezone": "America/Sao_Paulo", "failure_not_masked": "passed", "pod_security": "passed", "dag_sha256": "f9d9c271d927e345d9b28cb445c63620ee81967c27f4b868680a60aebdd96856"}

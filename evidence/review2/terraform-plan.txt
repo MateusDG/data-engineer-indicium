@@ -1,0 +1,29 @@
+Success! The configuration is valid.
+
+kubernetes_namespace_v1.banvic: Refreshing state... [id=banvic]
+kubernetes_persistent_volume_v1.local["data"]: Refreshing state... [id=banvic-data]
+kubernetes_persistent_volume_v1.local["logs"]: Refreshing state... [id=banvic-logs]
+kubernetes_persistent_volume_v1.local["postgres"]: Refreshing state... [id=banvic-postgres]
+kubernetes_service_account_v1.pipeline: Refreshing state... [id=banvic/banvic-pipeline]
+kubernetes_config_map_v1.postgres_init: Refreshing state... [id=banvic/banvic-postgres-init]
+kubernetes_service_account_v1.airflow: Refreshing state... [id=banvic/banvic-airflow]
+kubernetes_role_v1.airflow_pods: Refreshing state... [id=banvic/banvic-airflow-pods]
+kubernetes_service_v1.postgres: Refreshing state... [id=banvic/postgres]
+kubernetes_persistent_volume_claim_v1.local["logs"]: Refreshing state... [id=banvic/banvic-logs]
+kubernetes_persistent_volume_claim_v1.local["data"]: Refreshing state... [id=banvic/banvic-data]
+kubernetes_persistent_volume_claim_v1.local["postgres"]: Refreshing state... [id=banvic/banvic-postgres]
+kubernetes_role_binding_v1.airflow_pods: Refreshing state... [id=banvic/banvic-airflow-pods]
+kubernetes_stateful_set_v1.postgres: Refreshing state... [id=banvic/postgres]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+Success! The configuration is valid.
+
+helm_release.airflow: Refreshing state... [id=airflow]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.

@@ -20,6 +20,12 @@ Ambiente implantado e validado em **4 de outubro de 2026**, usando Ubuntu 22.04 
 | psycopg da aplicação | 3.2.12 |
 | target-postgres | 0.8.0 |
 | tap-csv | Commit 0c84ec05266b5924134c0e0c2bb5e764475d845b |
+| Python da imagem comercial | 3.12.14 |
+| FastAPI / Uvicorn | 0.142.2 / 0.54.0 |
+| pandas / NumPy / SciPy | 3.0.6 / 2.5.3 / 1.18.1 |
+| scikit-learn | 1.9.1 |
+| psycopg da camada comercial | 3.3.6 |
+| Apache ECharts | 6.1.0 |
 
 O commit do tap corresponde à tag Git v1.3.2; o executável reporta v1.2.0. A referência de reprodução é o commit. As dependências transitivas dos dois conectores estão fixadas em `meltano/constraints-tap.txt` e `meltano/constraints-target.txt`. Os providers estão registrados nos arquivos `.terraform.lock.hcl` versionados.
 
@@ -33,6 +39,8 @@ O commit do tap corresponde à tag Git v1.3.2; o executável reporta v1.2.0. A r
 | kindest/node:v1.35.8 | sha256:07b2536e30b803ed61d1677a79df6115f798ce64c80f9e22f6ed45afd09323c0 |
 
 Imagens próprias: `banvic-pipeline:1.0.0` e `banvic-airflow:1.0.0`, construídas pelos Dockerfiles. Bibliotecas pré-instaladas no Airflow são fixadas pelo digest da imagem. Pacotes do sistema instalados por apt continuam sujeitos ao repositório da distribuição; não se afirma reprodução binária bit a bit.
+
+A extensão validada em 05/10/2026 UTC acrescenta `banvic-commercial:1.0.0`, base `python:3.12.14-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f`. As 26 dependências Python estão fixadas com hashes em `commercial/requirements.lock`; a dependência de gráficos está em `commercial/package-lock.json`, com distribuição e licença incluídas em `static/vendor`. O terceiro provider lock fica em `infra/commercial/.terraform.lock.hcl`.
 
 SHA-256 do chart oficial baixado e inspecionado: `1f7d1dfe3d58e2c54899950aba907a43625a18c8b6fb3c54760c21592129a5b6`.
 

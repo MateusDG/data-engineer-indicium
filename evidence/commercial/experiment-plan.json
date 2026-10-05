@@ -1,0 +1,32 @@
+{
+  "assumptions": {
+    "relative_transaction_lift": 0.2,
+    "retention_lift": 0.05,
+    "alpha": 0.05,
+    "power": 0.8,
+    "baseline_mean": 9.079930191972075,
+    "baseline_sd": 8.210046001152106,
+    "baseline_activity_rate": 0.6963350785340314,
+    "design": "Dois grupos aleatórios 1:1; unidade cliente; um teste primário."
+  },
+  "transactions": {
+    "minimum_detectable_effect": 1.815986038394415,
+    "clients_per_arm": 321,
+    "feasible_in_current_base": true
+  },
+  "activity": {
+    "minimum_detectable_effect": 0.050000000000000044,
+    "clients_per_arm": 1259,
+    "feasible_in_current_base": false
+  },
+  "eligible_clients": 955,
+  "follow_up_days": 90,
+  "protocol": [
+    "Definir um único tratamento, população elegível e desfecho primário antes do sorteio.",
+    "Sortear clientes 1:1, estratificando por agência e atividade anterior; registrar atribuição, não apenas adesão.",
+    "Acompanhar 90 dias, medir intenção de tratar e preservar o grupo controle.",
+    "Registrar custo, margem, recusas e mudanças de política; não misturar saldo atual com histórico.",
+    "Se houver vários testes confirmatórios, ajustar multiplicidade e recalcular o tamanho da amostra."
+  ],
+  "note": "Planejamento aproximado pela distribuição normal; não é resultado de um experimento nem garantia de retorno."
+}

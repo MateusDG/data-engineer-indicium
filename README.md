@@ -1,8 +1,12 @@
-# BanVic — POC de Engenharia de Dados
+# BanVic — Plataforma de dados e inteligência comercial
 
 Pipeline de ingestão das **sete tabelas do ERP** do BanVic, com Kubernetes local, infraestrutura como código, Meltano, Airflow e PostgreSQL. Preserva a origem, reconcilia todos os valores e publica as sete tabelas em uma única transação.
 
-**Revisado em 04/10/2026:** ambiente implantado, DAG concluída, 76.206 linhas reconciliadas e 14 testes aprovados. Consulte a [revisão completa por requisito](docs/REVISAO_COMPLETA.md) e as [evidências da validação inicial](docs/VALIDACAO.md).
+O **dashboard comercial** conecta essa plataforma à análise de atividade, retenção, agências e crédito. A área de alavancas apresenta ranking quantitativo para validação, estimativas ajustadas, intervalos de incerteza e planejamento de piloto. A fonte não registra intervenções ou custos: a aplicação explicita que **nenhum efeito causal de investimento está identificado**, sem transformar associação em garantia de retorno.
+
+**Extensão comercial validada em 05/10/2026 UTC:** 30 testes aprovados, dez grupos de verificações HTTP, nova ingestão concluída e reconciliação das 76.206 linhas. Operação em [DASHBOARD_COMERCIAL.md](docs/DASHBOARD_COMERCIAL.md), análise em [RESULTADOS_COMERCIAIS.md](docs/RESULTADOS_COMERCIAIS.md) e critérios em [METODOLOGIA_CAUSAL.md](docs/METODOLOGIA_CAUSAL.md). Evidências em `evidence/commercial/`.
+
+**Revisado novamente em 04/10/2026:** nova DAG concluída em 54 segundos, 76.206 linhas reconciliadas, 14 testes aprovados e Terraform sem diferenças em relação ao ambiente. Consulte a [revisão completa por requisito](docs/REVISAO_COMPLETA.md) e as [evidências da validação inicial](docs/VALIDACAO.md). A gravação ficou fora desta revisão, conforme solicitado.
 
 ## Arquitetura
 
@@ -16,9 +20,13 @@ flowchart LR
   QA --> PUB[Publicação transacional]
   PUB --> RAW[(raw / 7 tabelas)]
   RAW --> BI[analytics / views para BI]
+  BI --> API[FastAPI / conta somente leitura]
+  API --> DASH[Dashboard comercial / ECharts]
+  API --> RANK[AIPW / diagnósticos / prioridade de validação]
   QA --> AUDIT[(audit / evidências)]
   TF[Terraform + Helm] -. provisionam no Kind .-> SENSOR
   TF -. provisionam no Kind .-> STG
+  TF -. provisiona no Kind .-> API
   SEC[Kubernetes Secrets] -. credenciais .-> MELTANO
 ```
 
@@ -110,7 +118,20 @@ Espere as contagens acima e uma execução `published` em `audit.ingestion_runs`
 - `analytics.atividade_clientes`: atividade e inatividade relativa à última data do histórico.
 - `analytics.credito_por_status`: propostas e valores por status.
 
-Um cliente SQL ou Power BI pode usar a conta de leitura. Um dashboard comercial completo e inferência causal de investimentos ficam fora dos entregáveis de engenharia deste desafio.
+Um cliente SQL ou Power BI pode usar a conta de leitura. As quatro views adicionais `analytics.commercial_*` alimentam o dashboard e permanecem disponíveis para outros consumidores.
+
+### 6. Implantar e acessar o dashboard
+
+Após a primeira ingestão concluída:
+
+```bash
+bash scripts/deploy_commercial.sh
+bash scripts/access.sh
+```
+
+Abra **http://localhost:8090**, usuário **`comercial`**, senha no campo **`dashboard_admin`** do arquivo privado de credenciais. O pacote já inclui os arquivos ECharts e sua licença; Node/npm só são necessários para alterar essa dependência. O deploy constrói a terceira imagem e aplica `infra/commercial`, com estado privado fora do repositório.
+
+São seis telas, com filtros por período, canal e agência, pesquisa de unidades, coortes, diagnósticos de evidência, simulador de tamanho amostral e exportação CSV. Nenhum nome, documento ou identificador de cliente é enviado ao navegador. O padrão é outubro–dezembro/2022; janeiro/2023 é parcial. Consulte o [guia de uso e as definições](docs/DASHBOARD_COMERCIAL.md).
 
 ## Ingestão e resiliência
 
@@ -126,6 +147,8 @@ As sete tabelas e o marcador de snapshot são publicados na mesma transação. U
 bash scripts/test.sh
 # Depois da primeira ingestão bem-sucedida:
 bash scripts/test.sh --integration
+bash scripts/test_commercial.sh
+python3 scripts/verify_commercial.py --evidence-dir evidence/commercial
 
 # Use run IDs novos ao repetir os cenários:
 bash scripts/run_pipeline.sh teste_retry --fail-once contas
@@ -154,5 +177,7 @@ python3 scripts/package_delivery.py
 ```
 
 `delivery/banvic-projeto.zip` inclui código, configuração, documentação e evidências públicas; exclui fonte, credenciais, estado Terraform, caches e logs privados. A apresentação fica em `delivery/` e o roteiro em [ROTEIRO_VIDEO.md](docs/ROTEIRO_VIDEO.md).
+
+O enunciado exige um vídeo de três a cinco minutos na entrega. Esta revisão não executou gravação, narração ou geração de vídeo; os materiais existentes foram preservados. A exclusão dessa atividade da revisão não altera o requisito da certificação.
 
 O [plano inicial](docs/PLANO_IMPLEMENTACAO_BANVIC.md) registra a preparação anterior à implementação. Os comandos da solução final estão neste README.

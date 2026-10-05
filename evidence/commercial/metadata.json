@@ -1,0 +1,124 @@
+{
+  "source": {
+    "run_id": "scheduled__2026-10-05T09:00:00+00:00",
+    "sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+    "published_at": "2026-10-05T11:51:49.009875+00:00",
+    "loaded_at": "2026-10-05T12:09:12.172366+00:00"
+  },
+  "first_date": "2010-01-01",
+  "last_date": "2023-01-15",
+  "transaction_first_date": "2010-02-27",
+  "transaction_last_date": "2023-01-15",
+  "last_complete_month": "2022-12-31",
+  "default_start": "2022-10-01",
+  "default_end": "2022-12-31",
+  "default_quarter": "2022-Q4",
+  "quarters": [
+    "2021-Q1",
+    "2021-Q2",
+    "2021-Q3",
+    "2021-Q4",
+    "2022-Q1",
+    "2022-Q2",
+    "2022-Q3",
+    "2022-Q4"
+  ],
+  "agencies": [
+    {
+      "cod_agencia": "1",
+      "agency": "Agência Matriz",
+      "city": "São Paulo",
+      "state": "SP",
+      "channel": "Física"
+    },
+    {
+      "cod_agencia": "2",
+      "agency": "Agência Tatuapé",
+      "city": "São Paulo",
+      "state": "SP",
+      "channel": "Física"
+    },
+    {
+      "cod_agencia": "3",
+      "agency": "Agência Campinas",
+      "city": "Campinas",
+      "state": "SP",
+      "channel": "Física"
+    },
+    {
+      "cod_agencia": "4",
+      "agency": "Agência Osasco",
+      "city": "Osasco",
+      "state": "SP",
+      "channel": "Física"
+    },
+    {
+      "cod_agencia": "5",
+      "agency": "Agência Porto Alegre",
+      "city": "Porto Alegre",
+      "state": "RS",
+      "channel": "Física"
+    },
+    {
+      "cod_agencia": "6",
+      "agency": "Agência Rio de Janeiro",
+      "city": "Rio de Janeiro",
+      "state": "RJ",
+      "channel": "Física"
+    },
+    {
+      "cod_agencia": "7",
+      "agency": "Agência Digital",
+      "city": "São Paulo",
+      "state": "SP",
+      "channel": "Digital"
+    },
+    {
+      "cod_agencia": "8",
+      "agency": "Agência Jardins",
+      "city": "São Paulo",
+      "state": "SP",
+      "channel": "Física"
+    },
+    {
+      "cod_agencia": "9",
+      "agency": "Agência Florianópolis",
+      "city": "Florianópolis",
+      "state": "SC",
+      "channel": "Física"
+    },
+    {
+      "cod_agencia": "10",
+      "agency": "Agência Recife",
+      "city": "Recife",
+      "state": "PE",
+      "channel": "Física"
+    }
+  ],
+  "anomalies": [
+    {
+      "month": "2010-06",
+      "transactions": 6,
+      "vs_previous_median": 3.0
+    },
+    {
+      "month": "2010-09",
+      "transactions": 20,
+      "vs_previous_median": 3.33
+    },
+    {
+      "month": "2022-12",
+      "transactions": 25319,
+      "vs_previous_median": 21.87
+    }
+  ],
+  "quality": {
+    "source_clients_missing": 1,
+    "transactions_without_registered_client": 78,
+    "proposals_without_registered_client": 4,
+    "source_transactions": 71999,
+    "registered_clients": 998
+  },
+  "time_zone": "UTC",
+  "currency": "BRL"
+}
