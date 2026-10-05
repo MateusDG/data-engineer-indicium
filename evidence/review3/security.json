@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-10-05T13:33:36.405115+00:00",
+  "project_files_scanned": 196,
+  "git_objects_scanned": 261,
+  "terraform_states_scanned": 3,
+  "actual_credentials_found": 0,
+  "commercial_rbac": {
+    "get_secrets": false,
+    "create_pods": false
+  },
+  "non_root": true,
+  "read_only_filesystem": true,
+  "service_account_token": false,
+  "services": [
+    {
+      "name": "airflow-api-server",
+      "type": "ClusterIP"
+    },
+    {
+      "name": "airflow-scheduler",
+      "type": "ClusterIP"
+    },
+    {
+      "name": "airflow-statsd",
+      "type": "ClusterIP"
+    },
+    {
+      "name": "banvic-commercial",
+      "type": "ClusterIP"
+    },
+    {
+      "name": "postgres",
+      "type": "ClusterIP"
+    }
+  ]
+}

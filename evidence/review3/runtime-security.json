@@ -1,0 +1,69 @@
+{
+  "checked_at_utc": "2026-10-05T13:33:03.452835+00:00",
+  "rbac": {
+    "banvic-airflow_create_pods": true,
+    "banvic-airflow_get_secrets": false,
+    "banvic-pipeline_create_pods": false,
+    "banvic-pipeline_get_secrets": false
+  },
+  "container_logs": [
+    {
+      "pod": "airflow-api-server-8546588dcf-ltnd8",
+      "container": "api-server",
+      "actual_credentials_found": 0
+    },
+    {
+      "pod": "airflow-dag-processor-59dd887fd4-zkr6s",
+      "container": "dag-processor",
+      "actual_credentials_found": 0
+    },
+    {
+      "pod": "airflow-dag-processor-59dd887fd4-zkr6s",
+      "container": "dag-processor-log-groomer",
+      "actual_credentials_found": 0
+    },
+    {
+      "pod": "airflow-scheduler-0",
+      "container": "scheduler",
+      "actual_credentials_found": 0
+    },
+    {
+      "pod": "airflow-scheduler-0",
+      "container": "scheduler-log-groomer",
+      "actual_credentials_found": 0
+    },
+    {
+      "pod": "airflow-statsd-7d8479bbf5-lgt6s",
+      "container": "statsd",
+      "actual_credentials_found": 0
+    },
+    {
+      "pod": "banvic-commercial-84bf6fbfd8-9xhcn",
+      "container": "commercial",
+      "actual_credentials_found": 0
+    },
+    {
+      "pod": "postgres-0",
+      "container": "postgres",
+      "actual_credentials_found": 0
+    }
+  ],
+  "image_configuration_and_build_history": {
+    "banvic-airflow:1.0.0": {
+      "image_id": "sha256:fef7d1814923ff4445f2dd3a97bd6e4a3c82840a3c0d8f7ee95e45dc8fbed6c8",
+      "user": "50000",
+      "actual_credentials_in_configuration_or_history": 0
+    },
+    "banvic-pipeline:1.0.0": {
+      "image_id": "sha256:d628bd0603e85d200ab762befb0dff3798736159e38eb16215405fd2e04e8c82",
+      "user": "1000:1000",
+      "actual_credentials_in_configuration_or_history": 0
+    },
+    "banvic-commercial:1.0.0": {
+      "image_id": "sha256:5f72d238f3d13621724900f1c31e0ef8cc3d7be81a9049a4fdb881374952ab1b",
+      "user": "1000:1000",
+      "actual_credentials_in_configuration_or_history": 0
+    }
+  },
+  "scope": "Image configuration/history and current container logs; no claim of a complete vulnerability scan."
+}

@@ -1,6 +1,6 @@
 {
-  "verified_at": "2026-10-05T12:09:56.300274+00:00",
-  "source_run_id": "scheduled__2026-10-05T09:00:00+00:00",
+  "verified_at": "2026-10-05T13:33:02.949870+00:00",
+  "source_run_id": "review3_20261005_final",
   "checks": [
     "health_and_unauthenticated_access",
     "authentication_cookie_and_security_headers",

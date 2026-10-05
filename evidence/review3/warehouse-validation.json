@@ -1,0 +1,48 @@
+{
+  "source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+  "marker": {
+    "singleton": true,
+    "run_id": "review3_20261005_final",
+    "source_sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
+    "published_at": "2026-10-05T13:31:43.475157+00:00"
+  },
+  "manual_validation_run": "review3_20261005_final",
+  "tables": {
+    "agencias": {
+      "rows": 10,
+      "content_sha256": "91282b3985d528a4a550ce2b96b589a16acf8a7527fb05e9d9b985d0f483840d",
+      "source_values_match": true
+    },
+    "clientes": {
+      "rows": 998,
+      "content_sha256": "830ccaa6afd31543e49d998d177394657015faabff648535ee11390e6ade903c",
+      "source_values_match": true
+    },
+    "colaborador_agencia": {
+      "rows": 100,
+      "content_sha256": "fdd12f5d195e66b4b1278200628e580f28a96108573d2ecc27bf107100b54615",
+      "source_values_match": true
+    },
+    "colaboradores": {
+      "rows": 100,
+      "content_sha256": "a6ec654280659debaa1ecd9ec54787173429dd3bd14c1a1bf9cc9cfa98466c79",
+      "source_values_match": true
+    },
+    "contas": {
+      "rows": 999,
+      "content_sha256": "71608b7574e9adcde483775d595ac591fa95034459cfc91d0763b2861ea9b9a5",
+      "source_values_match": true
+    },
+    "propostas_credito": {
+      "rows": 2000,
+      "content_sha256": "88f82770a049a8c2e9789abc49437d0d3adf8e8fdc8e5dd1156fe8e866bdd8ab",
+      "source_values_match": true
+    },
+    "transacoes": {
+      "rows": 71999,
+      "content_sha256": "936142ad67ccf8f480e494d6756c9d84347709b8200269003a7c722fe01dabe5",
+      "source_values_match": true
+    }
+  },
+  "total_rows": 76206
+}

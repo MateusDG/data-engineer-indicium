@@ -1,0 +1,17 @@
+{
+  "platform": {
+    "validation": "passed",
+    "plan_exit_code": 0,
+    "changes": 0
+  },
+  "airflow": {
+    "validation": "passed",
+    "plan_exit_code": 0,
+    "changes": 0
+  },
+  "commercial": {
+    "validation": "passed",
+    "plan_exit_code": 0,
+    "changes": 0
+  }
+}

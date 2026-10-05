@@ -1,0 +1,111 @@
+{
+  "verified_at": "2026-10-05T12:48:32.452809+00:00",
+  "assets": {
+    "style.css": {
+      "deployed_bytes_match": true,
+      "cache_control": "no-cache",
+      "sha256": "f140228c3c073f54db1b73e7edc7f5d94aa5f883509f3ca1dd53ef9efa61a679"
+    },
+    "app.js": {
+      "deployed_bytes_match": true,
+      "cache_control": "no-cache",
+      "sha256": "5f66e53df47466d36eb76e2aa3ed46686cd3ccb02a111e02cbeba3ddb0863c52"
+    }
+  },
+  "screenshots": [
+    {
+      "file": "alavancas-desktop.png",
+      "width": 1425,
+      "height": 2643,
+      "format": "PNG"
+    },
+    {
+      "file": "alavancas-mobile.png",
+      "width": 375,
+      "height": 4170,
+      "format": "PNG"
+    },
+    {
+      "file": "atividade-desktop.png",
+      "width": 1425,
+      "height": 1742,
+      "format": "PNG"
+    },
+    {
+      "file": "atividade-mobile.png",
+      "width": 375,
+      "height": 3227,
+      "format": "PNG"
+    },
+    {
+      "file": "credito-desktop.png",
+      "width": 1425,
+      "height": 1484,
+      "format": "PNG"
+    },
+    {
+      "file": "credito-mobile.png",
+      "width": 375,
+      "height": 2460,
+      "format": "PNG"
+    },
+    {
+      "file": "criterios-desktop.png",
+      "width": 1425,
+      "height": 2298,
+      "format": "PNG"
+    },
+    {
+      "file": "criterios-mobile.png",
+      "width": 375,
+      "height": 3927,
+      "format": "PNG"
+    },
+    {
+      "file": "dashboard-desktop.png",
+      "width": 1425,
+      "height": 1863,
+      "format": "PNG"
+    },
+    {
+      "file": "dashboard-mobile.png",
+      "width": 375,
+      "height": 3038,
+      "format": "PNG"
+    },
+    {
+      "file": "login-desktop.png",
+      "width": 1425,
+      "height": 625,
+      "format": "PNG"
+    },
+    {
+      "file": "login-mobile.png",
+      "width": 375,
+      "height": 713,
+      "format": "PNG"
+    },
+    {
+      "file": "rede-desktop.png",
+      "width": 1425,
+      "height": 2024,
+      "format": "PNG"
+    },
+    {
+      "file": "rede-mobile.png",
+      "width": 375,
+      "height": 2579,
+      "format": "PNG"
+    }
+  ],
+  "commercial_tests_repeated": 15,
+  "http_check_groups_passed": 10,
+  "javascript_syntax": "passed",
+  "terraform_format": "passed",
+  "shell_syntax": "passed",
+  "design_references": [
+    "https://v10.carbondesignsystem.com/data-visualization/dashboards/",
+    "https://design-system.service.gov.uk/components/notification-banner/",
+    "https://cfpb.github.io/design-system/components/banner-notification"
+  ]
+}

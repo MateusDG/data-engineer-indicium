@@ -49,4 +49,4 @@ A auditoria também preserva a execução inicial de desenvolvimento que falhou 
 
 ## Limites da verificação
 
-Os testes ocorreram neste cluster Kind e nesta versão da fonte. Não houve teste em nuvem, alta disponibilidade, recuperação de desastre ou volume de produção. O dashboard e a análise causal mencionados no contexto de negócio não integram os entregáveis de engenharia listados no desafio.
+Os testes ocorreram neste cluster Kind e nesta versão da fonte. Não houve teste em nuvem, alta disponibilidade, recuperação de desastre ou volume de produção. Esta validação inicial cobriu a engenharia. O dashboard e a análise comercial foram implementados posteriormente e estão documentados em [VALIDACAO_COMERCIAL.md](VALIDACAO_COMERCIAL.md); a conferência atual por requisito está em [REVISAO_FINAL_REQUISITOS.md](REVISAO_FINAL_REQUISITOS.md).

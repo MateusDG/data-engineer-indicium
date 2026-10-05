@@ -667,9 +667,9 @@
   ],
   "decision": "Usar os contrastes como hipóteses para testes controlados. Nenhuma alavanca nesta fonte tem retorno causal ou financeiro garantido.",
   "source": {
-    "run_id": "scheduled__2026-10-05T09:00:00+00:00",
+    "run_id": "review3_20261005_final",
     "sha256": "646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790",
-    "published_at": "2026-10-05T11:51:49.009875+00:00",
-    "loaded_at": "2026-10-05T12:09:12.172366+00:00"
+    "published_at": "2026-10-05T13:31:43.475157+00:00",
+    "loaded_at": "2026-10-05T13:31:47.906247+00:00"
   }
 }

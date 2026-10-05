@@ -1,0 +1,60 @@
+{
+  "run_id": "review3_20261005_invalid_zip",
+  "state": "failed",
+  "start_date": "2026-10-05T13:28:35.581345Z",
+  "end_date": "2026-10-05T13:30:50.388919Z",
+  "tasks": {
+    "wait_for_zip": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_agencias": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "load_clientes": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "load_colaborador_agencia": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "load_colaboradores": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "load_contas": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "load_propostas_credito": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "load_transacoes": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "validate_all_tables": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "publish_snapshot": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "pipeline_complete": {
+      "state": "upstream_failed",
+      "try_number": 0
+    },
+    "record_failure": {
+      "state": "success",
+      "try_number": 1
+    },
+    "prepare_snapshot": {
+      "state": "failed",
+      "try_number": 3
+    }
+  }
+}

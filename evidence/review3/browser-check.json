@@ -1,0 +1,20 @@
+{
+  "checked_at_utc": "2026-10-05T13:43:01.873Z",
+  "airflow": {
+    "run_id": "review3_20261005_final",
+    "state": "Success",
+    "duration_display": "00:00:55.826",
+    "task_graph_inspected": true,
+    "console_errors": 0
+  },
+  "dashboard": {
+    "new_snapshot_loaded": true,
+    "quality": {
+      "overflow": false,
+      "source": "Execução: review3_20261005_final\n\nPublicação: 05/10/2026\n\nSHA-256 da fonte:\n646aada76645cab694741fa730d9792b40840c41823abb60bd7547a2038ba790\n\nCobertura: 01/01/2010 a 15/01/2023 · 71.999 transações · 998 clientes cadastrados.",
+      "title": "Critérios e qualidade"
+    },
+    "console_errors": 0
+  },
+  "scope": "Fresh run and publication metadata; complete desktop/mobile visual review retained in evidence/commercial/frontend-validation.json."
+}

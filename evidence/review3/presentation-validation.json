@@ -1,0 +1,18 @@
+{
+  "file": "BanVic-Apresentacao-Certificacao.pptx",
+  "sha256": "9a02293aa723c805cac0e884b4f29562f8e2642148ed9d693aa8d464e8c554f9",
+  "slide_count": 10,
+  "package_integrity": "passed",
+  "layout_and_fonts": "passed",
+  "native_table_slides": [
+    5,
+    6,
+    9,
+    10
+  ],
+  "final_slides_rendered_and_visually_reviewed": 10,
+  "native_powerpoint_editing_test": false,
+  "airflow_screenshot_date": "2026-10-04",
+  "current_validation_run": "review3_20261005_final",
+  "video_generation_or_recording": false
+}

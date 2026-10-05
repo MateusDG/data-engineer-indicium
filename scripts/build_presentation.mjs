@@ -1,4 +1,5 @@
-// Run with the Codex artifact runtime. See docs/APRESENTACAO.md.
+// Historical eight-slide engineering deck (04/10/2026).
+// For the current ten-slide review, use revise_presentation.mjs; see docs/APRESENTACAO.md.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';

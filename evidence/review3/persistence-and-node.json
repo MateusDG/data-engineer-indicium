@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-10-05T13:32:59.642633+00:00",
+  "nodes": [
+    {
+      "name": "banvic-control-plane",
+      "ready": true
+    }
+  ],
+  "persistent_volume_claims": [
+    {
+      "name": "banvic-data",
+      "phase": "Bound"
+    },
+    {
+      "name": "banvic-logs",
+      "phase": "Bound"
+    },
+    {
+      "name": "banvic-postgres",
+      "phase": "Bound"
+    }
+  ]
+}

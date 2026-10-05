@@ -4,9 +4,11 @@ Pipeline de ingestão das **sete tabelas do ERP** do BanVic, com Kubernetes loca
 
 O **dashboard comercial** conecta essa plataforma à análise de atividade, retenção, agências e crédito. A área de alavancas apresenta ranking quantitativo para validação, estimativas ajustadas, intervalos de incerteza e planejamento de piloto. A fonte não registra intervenções ou custos: a aplicação explicita que **nenhum efeito causal de investimento está identificado**, sem transformar associação em garantia de retorno.
 
-**Extensão comercial validada em 05/10/2026 UTC:** 30 testes aprovados, dez grupos de verificações HTTP, nova ingestão concluída e reconciliação das 76.206 linhas. Operação em [DASHBOARD_COMERCIAL.md](docs/DASHBOARD_COMERCIAL.md), análise em [RESULTADOS_COMERCIAIS.md](docs/RESULTADOS_COMERCIAIS.md) e critérios em [METODOLOGIA_CAUSAL.md](docs/METODOLOGIA_CAUSAL.md). Evidências em `evidence/commercial/`.
+**Conferência final dos requisitos em 05/10/2026:** 30 testes aprovados, dez grupos HTTP, cinco cenários reais de resiliência, 76.206 linhas integralmente reconciliadas e três módulos Terraform sem diferenças. A execução final terminou em 55,826 s. Consulte a [matriz completa de requisitos e limites](docs/REVISAO_FINAL_REQUISITOS.md); evidências em `evidence/review3/` e `evidence/commercial/`. Vídeo fora desta revisão, conforme solicitado.
 
-**Revisado novamente em 04/10/2026:** nova DAG concluída em 54 segundos, 76.206 linhas reconciliadas, 14 testes aprovados e Terraform sem diferenças em relação ao ambiente. Consulte a [revisão completa por requisito](docs/REVISAO_COMPLETA.md) e as [evidências da validação inicial](docs/VALIDACAO.md). A gravação ficou fora desta revisão, conforme solicitado.
+Operação comercial em [DASHBOARD_COMERCIAL.md](docs/DASHBOARD_COMERCIAL.md), análise em [RESULTADOS_COMERCIAIS.md](docs/RESULTADOS_COMERCIAIS.md) e critérios em [METODOLOGIA_CAUSAL.md](docs/METODOLOGIA_CAUSAL.md).
+
+As [revisões de 04/10/2026](docs/REVISAO_COMPLETA.md) e a [validação inicial](docs/VALIDACAO.md) foram preservadas como histórico. Seus números de testes e escopo correspondem às versões verificadas naquelas etapas.
 
 ## Arquitetura
 
@@ -176,7 +178,7 @@ Consulte [OPERACAO.md](docs/OPERACAO.md). A POC usa autenticação local, volume
 python3 scripts/package_delivery.py
 ```
 
-`delivery/banvic-projeto.zip` inclui código, configuração, documentação e evidências públicas; exclui fonte, credenciais, estado Terraform, caches e logs privados. A apresentação fica em `delivery/` e o roteiro em [ROTEIRO_VIDEO.md](docs/ROTEIRO_VIDEO.md).
+`delivery/banvic-projeto.zip` inclui código, configuração, documentação e evidências públicas; exclui fonte, credenciais, estado Terraform, caches e logs privados. A apresentação atual é `delivery/BanVic-Apresentacao-Certificacao.pptx`, com dez slides; consulte [APRESENTACAO.md](docs/APRESENTACAO.md). Os materiais anteriores permanecem como histórico.
 
 O enunciado exige um vídeo de três a cinco minutos na entrega. Esta revisão não executou gravação, narração ou geração de vídeo; os materiais existentes foram preservados. A exclusão dessa atividade da revisão não altera o requisito da certificação.
 

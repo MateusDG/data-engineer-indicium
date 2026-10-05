@@ -1,43 +1,38 @@
-# Apresentação e vídeo
+# Apresentação da solução
 
-A extensão comercial posterior está documentada em `DASHBOARD_COMERCIAL.md`, `RESULTADOS_COMERCIAIS.md` e `METODOLOGIA_CAUSAL.md`, com capturas reais em `evidence/commercial/`. A apresentação e o vídeo anteriores registram o escopo de engenharia da época e não demonstram as novas telas. Conforme solicitado, não foram recriados nem gravados nesta extensão.
+A apresentação atual é `delivery/BanVic-Apresentacao-Certificacao.pptx`, revisada em **05/10/2026**. Ela possui dez slides e reúne arquitetura, execução, reconciliação, falhas, segurança, consumo comercial e limites da inferência. O arquivo original `BanVic-Apresentacao-Final.pptx` foi preservado como registro da etapa anterior.
 
-**Escopo da segunda revisão (04/10/2026):** conforme solicitado, não houve gravação, narração, edição ou geração de vídeo. Os arquivos existentes abaixo foram preservados como materiais anteriores. O requisito de vídeo de três a cinco minutos permanece no enunciado da certificação; esta revisão técnica não o revalidou. A apresentação existente passou novamente pela verificação de integridade e quantidade de slides.
+## Conteúdo conferido
 
-## Arquivos
+1. Escopo da POC: sete tabelas, 76.206 linhas e 30 testes aprovados.
+2. Arquitetura de ingestão e publicação, com diagrama editável.
+3. Deploy, acesso e primeira execução, na ordem correta.
+4. Interface real do Airflow e resultado da revisão atual.
+5. Reconciliação das sete tabelas, com tabela nativa.
+6. Recuperação, idempotência e rollback.
+7. Segredos, acesso somente leitura e limites do ambiente local.
+8. Reprodução do projeto pelos scripts e README.
+9. Indicadores comerciais do último trimestre completo do ERP.
+10. Prioridade exploratória de validação e ausência de causalidade identificada.
 
-- `delivery/BanVic-Apresentacao-Final.pptx`: oito slides com texto, diagrama e tabelas editáveis. A captura do Airflow permanece como imagem real.
-- `delivery/BanVic-Demonstracao.mp4`: vídeo narrado em português, com capturas reais, cortes de tempo e slides explicativos.
-- `docs/ROTEIRO_VIDEO.md`: texto completo e marcações de tempo para revisão ou gravação com a voz do autor.
+A imagem do Airflow no slide 4 registra a execução anterior `certification_demo`, de 04/10, com 49,023 s. Uma legenda distingue essa captura do resultado atual: `review3_20261005_final`, de 05/10, concluído em 55,826 s. A nova execução foi conferida pela API e no navegador. Não se apresenta uma imagem histórica como captura de uma nova execução.
 
-O vídeo usa voz sintética local Microsoft Maria, sem clonagem de voz ou envio de conteúdo a serviço de mídia externo. Ele apresenta uma reaplicação real do deploy, a mesma execução Airflow em andamento e concluída, e a consulta real das contagens no PostgreSQL. Os recortes do terminal identificam sua origem. Não se apresenta uma montagem como gravação contínua da tela.
+## Validação
 
-Os materiais registram os 12 testes de ingestão e banco aprovados na gravação. A revisão posterior adicionou dois testes de segurança do empacotamento, totalizando 14, descritos em `REVISAO_COMPLETA.md`. O fluxo de ingestão demonstrado permaneceu o mesmo.
+Os dez slides finais foram renderizados e inspecionados individualmente. A exportação passou pelas verificações de integridade do PPTX, geometria, fontes, importação e presença de quatro tabelas nativas nos slides 5, 6, 9 e 10. As tabelas, os textos e o diagrama permanecem editáveis; a captura de tela é uma imagem. O recibo público está em `evidence/review3/presentation-validation.json`.
 
-## Revisão realizada
+Não houve teste de edição dentro do Microsoft PowerPoint ou Google Slides. A verificação confirma a estrutura e a renderização no runtime utilizado, sem afirmar comportamento idêntico em todos os aplicativos.
 
-A apresentação passou pelos validadores de integridade do arquivo, geometria, fontes e presença de tabelas nativas. Os oito slides foram renderizados a partir do PPTX final e revisados visualmente. O diagrama usa conectores e formas editáveis. As duas tabelas são objetos nativos do PowerPoint. Nenhum gráfico quantitativo foi necessário.
+## Reproduzir os slides
 
-Não foi realizado teste de edição dentro do Microsoft PowerPoint ou do Google Slides. A verificação confirma a estrutura do PPTX e sua renderização no runtime de artefatos, sem afirmar comportamento idêntico em todo aplicativo.
+O pipeline não depende do runtime de apresentação. `scripts/build_presentation.mjs` reconstrói o deck histórico de oito slides; `scripts/revise_presentation.mjs` importa esse deck, mantém sua estrutura e acrescenta a revisão comercial.
 
-## Reproduzir os materiais
+A revisão usa o runtime de artefatos e os validadores da habilidade Presentations. Configure caminhos absolutos para `SKILL_DIR`, `RUNTIME_NODE_MODULES`, `RUNTIME_PYTHON`, `WORKSPACE_DIR`, `TMP_DIR`, `SOURCE_PPTX` e `FINAL_PPTX`. A fonte é o PPTX original e a saída deve usar um nome novo, em `delivery/`. Use um diretório privado de build novo a cada exportação, com `node_modules` ligado aos módulos do runtime. Copie o script para esse diretório e execute com o Node do runtime.
 
-O pipeline não depende das ferramentas de apresentação. Para reconstruir os slides, `scripts/build_presentation.mjs` usa o runtime de artefatos e os validadores da habilidade Presentations do Codex. Defina os caminhos absolutos `SKILL_DIR`, `RUNTIME_NODE_MODULES`, `RUNTIME_PYTHON`, `WORKSPACE_DIR`, `TMP_DIR` e `FINAL_PPTX`, seguindo a configuração do runtime disponível no seu computador. Use um novo nome de saída a cada revisão.
+O script lê `evidence/review3/review3_20261005_final.json`; os dados comerciais e a origem das afirmações são citados nas notas dos slides. O recibo de validação e as imagens de revisão ficam no diretório privado de build. O script não grava ou gera vídeo.
 
-Para reconstruir somente a narração e o vídeo, são necessários os PNGs revisados, as capturas em `evidence/`, Windows com a voz Microsoft Maria Desktop e ffmpeg/ffprobe no Ubuntu:
+## Entrega e escopo do vídeo
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File scripts/narrate_video.ps1
-```
+Entregue o ZIP de código e a apresentação atual como arquivos separados, conforme a opção da plataforma. O ZIP exclui a fonte oficial, segredos, estado local e arquivos de mídia. A conferência completa está em [REVISAO_FINAL_REQUISITOS.md](REVISAO_FINAL_REQUISITOS.md).
 
-No Ubuntu:
-
-```bash
-python3 scripts/build_video.py
-```
-
-O script verifica a duração antes de renderizar e exige um vídeo entre três e cinco minutos. Os materiais intermediários ficam em `.runtime/` e não entram no pacote de código.
-
-## Entregar
-
-Revise o vídeo e confirme as regras da plataforma de certificação. O ZIP de código exclui a fonte oficial, segredos e estado local. Envie o ZIP ou disponibilize o código em um repositório Git conforme a opção da plataforma. O vídeo e o PPTX ficam separados. Este projeto não publica arquivos nem envia a inscrição automaticamente.
+O enunciado exige vídeo de três a cinco minutos. Por solicitação do usuário, esta revisão não gravou, narrou, editou, gerou ou verificou vídeo. O arquivo e o roteiro anteriores foram preservados; não integram as conclusões de validação atual. Não houve submissão automática na plataforma.

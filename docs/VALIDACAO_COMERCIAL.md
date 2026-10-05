@@ -26,6 +26,14 @@ O layout foi inspecionado em 1440 × 1000 e 390 × 844, com navegação móvel, 
 
 O teste HTTP conferiu conteúdo UTF-8/BOM, separador, quatro tipos de CSV, agregados, identificador de execução, ausência de identificadores de clientes e colunas de incerteza. A revisão de navegador é registrada em `browser-validation.json`, inclusive o resultado do download no navegador usado para o teste.
 
+## Revisão da interface
+
+A revisão visual de 05/10/2026 substituiu os cartões com contorno, faixas coloridas laterais, traços decorativos dos indicadores, códigos numéricos de seções e badges preenchidos. As notas de qualidade conservam o conteúdo e são apresentadas como texto contextual. Foram mantidas as definições, o ranking exploratório e a distinção entre associação e efeito causal.
+
+Os gráficos de modalidades e valores solicitados passaram a usar barras. A inspeção móvel identificou sobreposição no eixo monetário: o gráfico de crédito agora usa menos marcações e evita rótulos sobrepostos. A modalidade mais longa pode quebrar em duas linhas. A exportação recebeu nome acessível constante, e tabelas largas podem ser navegadas pelo teclado.
+
+Também foi corrigida a retenção de estilos antigos após deploy, com revalidação dos arquivos estáticos e identificação da revisão dos assets. A nova imagem foi implantada com o mesmo fluxo Docker/Kind/Terraform. Nesta revisão foram repetidos os 15 testes comerciais, as verificações HTTP, a sintaxe JavaScript, a formatação de Terraform e a sintaxe dos scripts. As capturas e a revisão visual atualizada ficam em `evidence/commercial/`.
+
 ## Correções verificadas
 
 - A cobertura histórica passou a considerar propostas e contas, além de transações: as 26 propostas anteriores à primeira transação não ficam fora de “Todo o histórico”.

@@ -1,5 +1,6 @@
 {
-  "verified_at": "2026-10-05T12:05:14.276Z",
+  "verified_at": "2026-10-05T12:47:57.066Z",
+  "visual_revision": "20261005-3",
   "screens_verified": [
     "overview",
     "activity",
@@ -8,6 +9,7 @@
     "levers",
     "method"
   ],
+  "login_verified": true,
   "tested_viewports": [
     {
       "width": 1440,
@@ -16,28 +18,46 @@
     {
       "width": 390,
       "height": 844
+    },
+    {
+      "width": 1440,
+      "height": 600
+    },
+    {
+      "width": 390,
+      "height": 600
     }
   ],
   "desktop_layout": {
     "pageWidth": 1425,
     "viewport": 1440,
-    "visibleHeading": "Alavancas comerciais"
+    "horizontal_page_overflow": false
+  },
+  "mobile_layout": {
+    "horizontal_page_overflow": false,
+    "tables_have_own_scroll": true
   },
   "checks": [
     "agency_search_and_drilldown",
     "reset_filters",
-    "all_history_and_digital_channel",
-    "custom_dates_and_partial_month_warning",
+    "custom_date_form_mobile",
     "cohort_future_cells",
     "evidence_modal",
     "experiment_planner",
-    "mobile_navigation"
+    "mobile_navigation",
+    "login_and_logout",
+    "keyboard_table_scroll",
+    "visible_keyboard_focus",
+    "accessible_export_button_name",
+    "context_notes_without_border_or_background",
+    "credit_axis_label_overlap_corrected"
   ],
   "csv_download": {
     "completed": true,
-    "file": "banvic-evidence-2022-10-01-2022-12-31.csv",
+    "file": "banvic-evidence-2022-10-01-2022-12-31 (1).csv",
     "aggregate_rows": 4
   },
   "javascript_console_errors": 0,
+  "javascript_console_warnings": 0,
   "recording_executed": false
 }

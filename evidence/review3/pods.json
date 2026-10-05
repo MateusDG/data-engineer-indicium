@@ -1,0 +1,78 @@
+[
+  {
+    "name": "airflow-api-server-8546588dcf-ltnd8",
+    "phase": "Running",
+    "containers": [
+      {
+        "name": "api-server",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  {
+    "name": "airflow-dag-processor-59dd887fd4-zkr6s",
+    "phase": "Running",
+    "containers": [
+      {
+        "name": "dag-processor",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "name": "dag-processor-log-groomer",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  {
+    "name": "airflow-scheduler-0",
+    "phase": "Running",
+    "containers": [
+      {
+        "name": "scheduler",
+        "ready": true,
+        "restarts": 0
+      },
+      {
+        "name": "scheduler-log-groomer",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  {
+    "name": "airflow-statsd-7d8479bbf5-lgt6s",
+    "phase": "Running",
+    "containers": [
+      {
+        "name": "statsd",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  {
+    "name": "banvic-commercial-84bf6fbfd8-9xhcn",
+    "phase": "Running",
+    "containers": [
+      {
+        "name": "commercial",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  },
+  {
+    "name": "postgres-0",
+    "phase": "Running",
+    "containers": [
+      {
+        "name": "postgres",
+        "ready": true,
+        "restarts": 0
+      }
+    ]
+  }
+]

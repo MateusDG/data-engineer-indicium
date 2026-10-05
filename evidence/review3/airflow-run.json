@@ -1,0 +1,61 @@
+{
+  "run_id": "review3_20261005_final",
+  "state": "success",
+  "start_date": "2026-10-05T13:30:52.387262Z",
+  "end_date": "2026-10-05T13:31:48.213321Z",
+  "duration_seconds": 55.826059,
+  "tasks": {
+    "wait_for_zip": {
+      "state": "success",
+      "try_number": 1
+    },
+    "prepare_snapshot": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_agencias": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_clientes": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_colaborador_agencia": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_colaboradores": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_contas": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_propostas_credito": {
+      "state": "success",
+      "try_number": 1
+    },
+    "load_transacoes": {
+      "state": "success",
+      "try_number": 1
+    },
+    "validate_all_tables": {
+      "state": "success",
+      "try_number": 1
+    },
+    "publish_snapshot": {
+      "state": "success",
+      "try_number": 1
+    },
+    "pipeline_complete": {
+      "state": "success",
+      "try_number": 1
+    },
+    "record_failure": {
+      "state": "skipped",
+      "try_number": 0
+    }
+  }
+}

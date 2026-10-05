@@ -1,5 +1,7 @@
 # Revisão completa — BanVic
 
+**Conferência mais recente:** [REVISAO_FINAL_REQUISITOS.md](REVISAO_FINAL_REQUISITOS.md), realizada em 05/10/2026, com cinco cenários reais repetidos e apresentação atualizada. Este documento preserva a segunda revisão e seus números históricos.
+
 **Atualização comercial em 05/10/2026 UTC:** dashboard, estimador de contrastes e ranking de prioridade foram implementados e implantados após esta revisão de engenharia. A validação atual passou em 30 testes e dez grupos de verificações da API, com nova ingestão `commercial_validation_20261005`. Consulte [DASHBOARD_COMERCIAL.md](DASHBOARD_COMERCIAL.md) e `evidence/commercial/`. Os resultados abaixo registram a revisão anterior, mantendo suas datas e contagens originais.
 
 Segunda revisão realizada em **04/10/2026, à noite, em America/Sao_Paulo** (05/10/2026 UTC), confrontando código, documentação, pacote e ambiente real com os requisitos fornecidos. Conforme solicitado pelo usuário, **não houve gravação, narração, edição ou geração de vídeo nesta revisão**. Os materiais anteriores foram preservados.

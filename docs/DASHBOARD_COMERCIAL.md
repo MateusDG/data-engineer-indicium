@@ -77,6 +77,18 @@ npm run vendor
 
 Preserve e revise os arquivos de lock. O container usa usuário 1000, filesystem somente de leitura, capabilities removidas, limites de recursos e service account sem token. O serviço não recebe permissões de administração do Kubernetes.
 
+## Interface e leitura dos dados
+
+A interface usa uma composição de relatório financeiro: títulos em Georgia, texto e controles em Segoe UI, números alinhados e espaçamento para separar os blocos. As fontes são locais ao sistema; não há requisições a serviços de fontes ou imagens externos.
+
+Os indicadores formam uma faixa de resumo. Gráficos e tabelas usam separadores neutros em vez de cartões com contorno. As notas de cobertura ficam junto à análise, com rótulo explícito e texto legível, sem caixa colorida, borda lateral ou ícone de alerta decorativo. A variação de dezembro e as limitações de causalidade continuam presentes. Status são expressos por palavras; a cor é complementar.
+
+O mix de transações e os valores de crédito são apresentados em barras com rótulos diretos para facilitar comparações. Cores de dados, unidades, denominadores e critérios estatísticos conservam o mesmo significado em todas as telas. Ícones SVG seguem um único traço, com nomes acessíveis nos botões. A exportação permanece identificada como “Exportar CSV” também no celular.
+
+As tabelas largas têm rolagem própria e recebem foco pelo teclado. A navegação indica a página atual; controles exibem foco visível e a preferência por movimento reduzido é respeitada. No celular, filtros, notas e seções passam a uma coluna quando necessário. A API pede revalidação do HTML e dos arquivos estáticos para que um novo deploy não combine estilos antigos com marcação nova.
+
+Referências consultadas em 05/10/2026: [Carbon — dashboards](https://v10.carbondesignsystem.com/data-visualization/dashboards/) orienta hierarquia, redução de distrações, consistência de cores e uso de espaço; [GOV.UK — notification banner](https://design-system.service.gov.uk/components/notification-banner/) recomenda moderação nos banners e informação contextual no conteúdo; [CFPB — banner notification](https://cfpb.github.io/design-system/components/banner-notification) distingue avisos do sistema de informações ligadas à tarefa. A composição visual aplica esses princípios ao contexto comercial do BanVic.
+
 ## Verificação
 
 ```bash
