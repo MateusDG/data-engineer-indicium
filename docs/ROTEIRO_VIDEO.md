@@ -1,61 +1,251 @@
-# Roteiro do vídeo técnico BanVic
+# Roteiro de gravação — vídeo de demonstração BanVic
 
-Versão narrada com capturas reais e cortes de tempo. Voz sintética local. Para gravar sua própria voz, use o texto abaixo e mantenha a demonstração entre 3 e 5 minutos.
+Meta: **entre 4min30 e 5min**, gravado com a sua voz, mostrando o pipeline rodando de verdade. A banca avalia infraestrutura, ingestão, orquestração, qualidade do código, segurança e a clareza da apresentação. O roteiro cobre todos esses pontos, na ordem.
 
-## 00:00 a 00:22 — Projeto BanVic
+O roteiro tem três partes:
 
-Esta Ã© a prova de conceito de engenharia de dados do BanVic. O projeto centraliza as sete tabelas do ERP em PostgreSQL, com infraestrutura como cÃ³digo, Kubernetes local e orquestraÃ§Ã£o no Airflow. A carga preservou setenta e seis mil, duzentas e seis linhas. A demonstraÃ§Ã£o usa capturas reais com cortes de tempo e narraÃ§Ã£o sintÃ©tica.
+1. **Preparação**, sem gravar, cerca de 40 minutos antes.
+2. **Gravação**, cena por cena: o que abrir, o que fazer e o que falar.
+3. **Depois de gravar**: edição, entrega e o que fazer se algo der errado.
 
-Tela: `.runtime/presentation/slide-1.png`.
+---
 
-## 00:22 a 01:00 — Arquitetura e estratÃ©gia
+## Parte 1 — Preparação (não gravar)
 
-A origem Ã© o arquivo ZIP oficial da certificaÃ§Ã£o. Como ele representa uma exportaÃ§Ã£o completa, adotamos ingestÃ£o por snapshot, sem simular um CDC inexistente. Cada execuÃ§Ã£o congela sua prÃ³pria cÃ³pia e valida arquivos, cabeÃ§alhos, tipos e chaves. O Meltano executa a extraÃ§Ã£o e a carga com tap CSV e target Postgres, em pods separados. As tabelas chegam a um schema de staging exclusivo. Depois, a validaÃ§Ã£o compara todos os valores com a fonte. Somente entÃ£o uma transaÃ§Ã£o publica as sete tabelas e o marcador do snapshot.
+Se ainda não sabe operar a plataforma, pratique antes com o [guia prático de uso](GUIA_DE_USO.md). Ele explica cada peça e cada tela.
 
-Tela: `.runtime/presentation/slide-2.png`.
+### 1.1 Subir o ambiente
 
-## 01:00 a 01:34 — Deploy real, reaplicaÃ§Ã£o
+Abra o Docker Desktop e espere ficar "Running". Depois abra o **Ubuntu (WSL)** e rode:
 
-O ambiente executa no Ubuntu, dentro do WSL dois, usando o Docker Desktop. O script de deploy cria o cluster Kind, constrÃ³i as imagens e carrega os containers no nÃ³. O Terraform provisiona os recursos Kubernetes, e uma segunda etapa instala o chart oficial do Airflow. Esta saÃ­da Ã© uma reaplicaÃ§Ã£o real do deploy. As duas etapas terminaram sem alteraÃ§Ãµes, e todos os pods estavam prontos. Os volumes, credenciais e estados permanecem fora do repositÃ³rio, no diretÃ³rio privado do usuÃ¡rio Linux.
+```bash
+cd /mnt/c/Users/mateu/Desktop/data-engineer-indicium
+export KUBECONFIG="$HOME/banvic-local/kubeconfig"
+bash scripts/access.sh
+```
 
-Tela: `evidence/deploy-screen.png`.
+- `access.sh` abre as portas locais: Airflow em `localhost:8080`, dashboard em `localhost:8090` e PostgreSQL em `localhost:5433`.
+- Se o computador foi reiniciado, ele primeiro reconecta os volumes do cluster. Isso leva 1–2 minutos.
+- Só rode `bash scripts/deploy.sh` (pipeline/Airflow) ou `bash scripts/deploy_commercial.sh` (dashboard) se o código correspondente tiver mudado.
 
-## 01:34 a 02:03 — Airflow em execuÃ§Ã£o
+Confira se todos os pods estão `Running` e prontos:
 
-Aqui vemos a execuÃ§Ã£o certification video em andamento no Airflow. O sensor confirmou a presenÃ§a do ZIP, e a preparaÃ§Ã£o congelou a fonte. As cargas sÃ£o independentes, com atÃ© quatro tarefas em execuÃ§Ã£o ao mesmo tempo. Cada carga usa o Kubernetes Pod Operator para iniciar seu container Meltano. As dependÃªncias impedem validar antes de concluir todas as tabelas. O agendamento diÃ¡rio ocorre Ã s seis horas, no fuso de SÃ£o Paulo.
+```bash
+kubectl -n banvic get pods
+```
 
-Tela: `evidence/airflow-running.png`.
+### 1.2 Rodar antes o cenário de falha e retry
 
-## 02:03 a 02:33 — Airflow concluÃ­do
+Rode este cenário antes da gravação. Assim, no vídeo você só mostra o resultado, sem esperar.
 
-A mesma execuÃ§Ã£o chegou ao estado de sucesso em aproximadamente cinquenta segundos neste computador. As doze tarefas do fluxo principal concluÃ­ram, e o tratamento de falha ficou como skipped, porque nÃ£o houve erro. A publicaÃ§Ã£o sÃ³ comeÃ§ou depois da reconciliaÃ§Ã£o integral. Contagens e hashes ficam registrados no schema de auditoria. Esse tempo Ã© uma observaÃ§Ã£o do ambiente local, com imagens jÃ¡ disponÃ­veis, e nÃ£o uma garantia de desempenho em produÃ§Ã£o.
+```bash
+bash scripts/run_pipeline.sh video_retry --fail-once contas
+```
 
-Tela: `evidence/airflow-video-success.png`.
+- A carga de `contas` falha de propósito na 1ª tentativa e conclui na 2ª.
+- Ao final, o script já roda o `verify.sh`.
+- Se repetir o ensaio, use outro nome (`video_retry2`), porque cada run ID só pode ser usado uma vez.
 
-## 02:33 a 03:06 — Dados no PostgreSQL
+Opcional: rode também uma execução normal de ensaio, para medir o tempo:
 
-A consulta no destino mostra dez agÃªncias, novecentos e noventa e oito clientes, cem vÃ­nculos de colaboradores com agÃªncias, cem colaboradores, novecentas e noventa e nove contas, duas mil propostas de crÃ©dito e setenta e uma mil, novecentas e noventa e nove transaÃ§Ãµes. As contagens conferem com a origem, e os hashes de todos os valores tambÃ©m. Identificamos uma conta e quatro propostas que jÃ¡ referenciam cliente ausente na fonte. Preservamos essas linhas e registramos o aviso, sem inventar clientes para esconder o problema.
+```bash
+bash scripts/run_pipeline.sh ensaio_1
+```
 
-Tela: `evidence/verification-screen.png`.
+### 1.3 Testar o comando do Terraform (opcional, mas recomendado)
 
-## 03:06 a 03:41 — ResiliÃªncia comprovada
+Se este teste mostrar **"No changes"**, use-o na Cena 3. Ele é a melhor prova de infraestrutura como código.
 
-AlÃ©m da carga normal, testamos recuperaÃ§Ã£o e proteÃ§Ã£o dos dados. Uma falha transitÃ³ria em contas recuperou na segunda tentativa. Uma falha permanente terminou com a DAG e a auditoria em failed, mantendo o snapshot anterior. Um teste alterou um valor do staging e comprovou que a validaÃ§Ã£o bloqueia a publicaÃ§Ã£o. Outro provocou erro na Ãºltima tabela depois de operaÃ§Ãµes nas anteriores e comprovou rollback integral. Os sete testes de fonte e os cinco testes de banco passaram. Reprocessar o mesmo ZIP produziu zero diferenÃ§as nos dados.
+```bash
+export TF_VAR_kubeconfig_path="$KUBECONFIG"
+export TF_DATA_DIR="$HOME/banvic-local/terraform/platform/provider-cache"
+terraform -chdir=infra/platform plan
+```
 
-Tela: `.runtime/presentation/slide-6.png`.
+Se der erro ou mostrar alterações, não use na gravação. O slide 3 já mostra o "No changes" do deploy.
 
-## 03:41 a 04:17 — SeguranÃ§a e limites
+### 1.4 Pegar as senhas e fazer login (fora da gravação)
 
-As senhas sÃ£o geradas uma vez e enviadas por Kubernetes Secrets. NÃ£o entram no cÃ³digo, nas imagens ou no estado do Terraform. Os pods de ingestÃ£o executam sem privilÃ©gios e sem token de service account. A conta do analista permite apenas leitura. Verificamos que ela nÃ£o consegue inserir dados nem criar objetos no schema raw. A interface e o banco usam acesso local por port forward. Para produÃ§Ã£o, ainda seriam necessÃ¡rios autenticaÃ§Ã£o corporativa, TLS, backup, retenÃ§Ã£o e uma infraestrutura com disponibilidade adequada.
+```bash
+python3 -c "import json,os; d=json.load(open(os.path.expanduser('~/banvic-local/secrets/credentials.json'))); print('Airflow:', d['airflow_admin']); print('Dashboard:', d['dashboard_admin'])"
+```
 
-Tela: `.runtime/presentation/slide-7.png`.
+1. Faça login no **Airflow**: http://localhost:8080, usuário `admin`.
+2. Faça login no **dashboard**: http://localhost:8090, usuário `comercial`.
+3. Rode `clear` no terminal. **As senhas não podem aparecer no vídeo.**
 
-## 04:17 a 04:54 — ReproduÃ§Ã£o e entrega
+### 1.5 Deixar as janelas prontas, nesta ordem
 
-O pacote inclui infraestrutura, configuraÃ§Ã£o Meltano, DAGs, SQL, testes e documentaÃ§Ã£o de operaÃ§Ã£o. O README apresenta os comandos para subir o ambiente, executar a carga e verificar os resultados. As views analytics oferecem uma base para indicadores de transaÃ§Ãµes, atividade de clientes e crÃ©dito. O prÃ³ximo trabalho de negÃ³cio Ã© definir mÃ©tricas e construir o dashboard. Um ranking causal de investimentos exige desenho estatÃ­stico adicional. A prova de conceito entrega a infraestrutura e o pipeline funcionando, com evidÃªncias verificÃ¡veis.
+| # | Janela | Como deixar |
+|---|---|---|
+| 1 | PowerPoint | `delivery/BanVic-Apresentacao-Certificacao.pptx` em modo apresentação, no slide 1 |
+| 2 | Navegador, aba **GitHub** | README do repositório (o diagrama Mermaid aparece renderizado) |
+| 3 | Terminal Ubuntu | Fonte grande (16+), `KUBECONFIG` exportado, tela limpa |
+| 4 | VS Code | Abas abertas: `dags/banvic_ingestion.py` e `meltano/meltano.yml` |
+| 5 | Navegador, aba **Airflow** | Página da DAG `banvic_ingestion`, já logado |
+| 6 | Navegador, aba **Dashboard** | Tela "Visão executiva", já logado |
 
-Tela: `.runtime/presentation/slide-8.png`.
+### 1.6 Checklist antes de apertar REC
 
-Duração planejada: 294.0 segundos.
+- [ ] Resolução 1920×1080. Zoom do navegador em 100–110%.
+- [ ] Modo "Não perturbe" do Windows ligado. Slack, e-mail e WhatsApp fechados.
+- [ ] Nenhuma janela mostrando `credentials.json`, senhas ou `kubectl get secret`.
+- [ ] Microfone testado: grave 10 segundos e ouça.
+- [ ] Gravador pronto: **OBS Studio** (grátis) ou **Win + Alt + R** (Xbox Game Bar).
+- [ ] Um ensaio completo feito com cronômetro.
 
-Na gravação, mantenha senhas e registros de clientes fora da tela. Mostre o status Success no Airflow e as contagens de todas as sete tabelas no destino. O deploy mostrado é uma reaplicação, com Terraform sem alterações.
+---
+
+## Parte 2 — Gravação, cena por cena
+
+Os textos entre aspas são sugestões de fala. Leia em voz alta no ensaio e adapte ao seu jeito de falar. Não precisa decorar.
+
+### Cena 1 — Abertura · 0:00–0:25
+
+**Tela:** PowerPoint, slide 1.
+
+**Fala:**
+> "Olá, eu sou [seu nome]. Este é o meu projeto da certificação Data Engineer da Indicium: uma prova de conceito para o BanVic, o Banco Vitória. Hoje as análises do banco são feitas em planilhas. O objetivo é centralizar os dados do ERP com uma ingestão automatizada, orquestrada e reprodutível. Vou mostrar a arquitetura, o código e o pipeline rodando de verdade."
+
+### Cena 2 — Arquitetura e estratégia · 0:25–1:10
+
+**Tela:** slide 2 (diagrama da arquitetura). Aponte as etapas com o mouse enquanto fala.
+
+**Fala:**
+> "A fonte é o arquivo banvic_data.zip, com as sete tabelas do ERP, simulando um sistema legado. Como ele é uma exportação completa, sem data de alteração, a estratégia é snapshot completo, ou full refresh, e não carga incremental.
+>
+> Tudo roda num Kubernetes local, com Kind. O Terraform cria o namespace, os volumes, o PostgreSQL e as permissões, e também instala o Airflow pelo chart oficial do Helm.
+>
+> O fluxo: um sensor do Airflow espera o ZIP. A preparação congela uma cópia imutável para cada execução e valida colunas, tipos e chaves. Depois, sete cargas do Meltano, com tap-csv e target-postgres, rodam em pods separados e gravam num schema de staging exclusivo daquela execução. A validação compara contagens e hashes de todos os valores com a origem. Só então uma única transação publica as sete tabelas. Os analistas consomem views prontas, com um usuário somente leitura."
+
+### Cena 3 — Infraestrutura rodando · 1:10–1:40
+
+**Tela:** terminal.
+
+**Ação:** digite
+
+```bash
+kubectl -n banvic get pods
+kubectl -n banvic get pvc
+```
+
+Se o teste da etapa 1.3 deu certo, rode também `terraform -chdir=infra/platform plan` e mostre o "No changes".
+
+**Fala:**
+> "Este é o ambiente no ar. No namespace banvic estão o PostgreSQL, os componentes do Airflow — API, scheduler e processador de DAGs —, o StatsD para métricas e o dashboard. Os dados ficam em três volumes persistentes: dados, banco e logs. Tudo sobe com um comando, o deploy.sh, que cria o cluster, constrói as imagens Docker e aplica o Terraform. Rodar de novo não recria nada: o Terraform responde 'No changes'."
+
+### Cena 4 — Código da DAG e do Meltano · 1:40–2:25
+
+**Tela:** VS Code, `dags/banvic_ingestion.py`.
+
+**Ação:** role devagar e pare nestes trechos:
+
+1. Linhas 24–31: `schedule`, `catchup`, `max_active_runs` e `retries`.
+2. Linha 38: o sensor com `mode="reschedule"`.
+3. Linhas 45 e 55: o `KubernetesPodOperator` e o `env_from` com o Secret.
+4. Linhas 82–83: as dependências.
+
+**Fala:**
+> "Esta é a DAG. Ela roda todo dia às seis da manhã, no horário de São Paulo, sem catchup e com uma execução por vez. Cada tarefa tem duas novas tentativas, com espera crescente. O sensor verifica o ZIP em modo reschedule, então não prende um worker enquanto espera.
+>
+> Cada etapa usa o KubernetesPodOperator: sobe um container isolado com o Meltano, e as credenciais entram por um Secret do Kubernetes. Não há nenhuma senha no código.
+>
+> Aqui embaixo, as dependências: sensor, preparação, as sete cargas em paralelo, validação e publicação. A tarefa record_failure só dispara se algo falhar, e registra a falha na auditoria."
+
+**Ação:** troque para a aba `meltano/meltano.yml`.
+
+**Fala:**
+> "E esta é a configuração do Meltano: extractor tap-csv e loader target-postgres, com versões fixadas. A senha é marcada como sensível e só é injetada em tempo de execução."
+
+### Cena 5 — Pipeline rodando ao vivo · 2:25–3:15
+
+**Tela:** navegador, aba Airflow, página da DAG `banvic_ingestion`.
+
+**Ação:**
+
+1. Clique em **Trigger**. Deixe os parâmetros vazios e confirme.
+2. Abra a execução que apareceu e mude para a visão **Graph** (grafo).
+3. Fale enquanto as tarefas mudam de cor.
+
+**Fala, durante a execução:**
+> "Agora, o pipeline rodando de verdade. Disparei a DAG manualmente. O sensor encontrou o arquivo, a preparação congelou o snapshot e as cargas começam, até quatro ao mesmo tempo. Cada uma dessas tarefas é um pod no Kubernetes executando o Meltano."
+
+**CORTE:** pare de gravar, ou corte na edição, até a execução terminar. Isso leva cerca de 1 minuto.
+
+**Ação depois do corte:** mostre todas as tarefas verdes. Clique em `load_transacoes` e depois em **Logs**.
+
+**Fala:**
+> "Execução concluída com sucesso, em menos de um minuto. A record_failure ficou como skipped, porque não houve erro. No log da carga de transações dá para ver o Meltano rodando o tap-csv e o target-postgres."
+
+### Cena 6 — Resiliência · 3:15–3:40
+
+**Tela:** Airflow. Abra a execução `video_retry`, que você rodou na preparação, e clique na tarefa `load_contas` para mostrar as 2 tentativas.
+
+**Fala:**
+> "Este é um teste de resiliência que rodei antes. Simulei uma falha na carga de contas: a tarefa falhou na primeira tentativa, o Airflow aplicou o retry e ela concluiu na segunda, sem duplicar dados. Também testei uma falha permanente. Nesse caso a DAG termina como failed, e os dados publicados antes continuam intactos, porque a publicação é atômica."
+
+### Cena 7 — Dados no PostgreSQL · 3:40–4:05
+
+**Tela:** terminal.
+
+**Ação:** digite o comando abaixo e role até o início da saída, onde está a tabela de contagens.
+
+```bash
+bash scripts/verify.sh
+```
+
+**Fala:**
+> "Conferindo no PostgreSQL: as sete tabelas somam 76.206 linhas, exatamente as da origem. Na auditoria, cada execução registra o status e o hash do arquivo, e o snapshot atual aponta para a última publicação. Rodar de novo o mesmo ZIP não duplica nada: o processo é idempotente."
+
+### Cena 8 — Consumo pela área comercial · 4:05–4:35
+
+**Tela:** navegador, aba Dashboard, tela **Visão executiva**.
+
+**Fala:**
+> "Com os dados centralizados, a área comercial consome tudo por este dashboard. Ele lê o banco com usuário somente leitura e não envia dados pessoais ao navegador. Aqui estão os clientes ativos e as transações por cliente, que são o objetivo da diretoria comercial."
+
+**Ação:** clique em **Alavancas comerciais** no menu lateral. Mostre o bloco "Onde testar primeiro".
+
+**Fala:**
+> "E aqui a resposta para a CEO: o uso de cartão de crédito, de Pix e o relacionamento com várias modalidades são o que mais acompanha clientes ativos. Os dados do ERP mostram associação, não causa. Por isso o painel já dimensiona um piloto com grupo de controle para o próximo trimestre."
+
+### Cena 9 — Encerramento · 4:35–5:00
+
+**Tela:** navegador, aba GitHub, com o README e o diagrama. Role devagar até "Subir o ambiente".
+
+**Fala:**
+> "Toda a documentação está no README: o diagrama, o passo a passo para subir o ambiente e a estratégia de ingestão. Resumindo: infraestrutura como código em Kubernetes, ingestão com Meltano, orquestração com retries e idempotência, credenciais apenas em Secrets e tudo reprodutível. Para produção, os próximos passos seriam login corporativo, TLS, backup e alertas. Obrigado!"
+
+---
+
+## Parte 3 — Depois de gravar
+
+### Edição
+
+- Corte as esperas: o pipeline rodando e trocas lentas de janela. Para ser transparente, escreva "tempo acelerado" na tela durante o corte.
+- Se passou de 5 minutos, encurte primeiro a Cena 6, depois a parte do Meltano na Cena 4.
+- Exporte em MP4, 1080p.
+
+### O que nunca pode aparecer
+
+- O arquivo `~/banvic-local/secrets/credentials.json` ou qualquer senha.
+- `kubectl get secret ... -o yaml` ou `env` dentro de pods.
+- Consultas em `raw.clientes` ou `raw.colaboradores`, que têm nomes, CPF e e-mail. O `verify.sh` mostra só contagens e é seguro.
+
+### Se algo der errado durante a gravação
+
+| Problema | O que fazer |
+|---|---|
+| Airflow ou dashboard não abre | `bash scripts/access.sh` |
+| Pod fora de `Running` | `kubectl -n banvic get pods -w` e espere ficar pronto |
+| Execução falhou ao vivo | Pare, veja o log da tarefa vermelha, corrija e grave a cena de novo com nova execução |
+| Botão Trigger não executa | Confirme que a DAG não está pausada (botão de ativar ao lado do nome) |
+
+### Entrega
+
+1. Faça commit e push das alterações. O README do GitHub é o que a banca vê.
+2. Gere o pacote de código: `python3 scripts/package_delivery.py`.
+3. Envie na plataforma:
+   - o link do repositório ou `delivery/banvic-projeto.zip`;
+   - `delivery/BanVic-Apresentacao-Certificacao.pptx`;
+   - o vídeo.

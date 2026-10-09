@@ -32,6 +32,7 @@ else
   kind export kubeconfig --name banvic --kubeconfig "$KUBECONFIG"
 fi
 banvic_require_cluster
+banvic_reattach_volumes
 
 # Assign only this project's new volume roots to the container UIDs.
 docker run --rm --user 0 --entrypoint sh \

@@ -31,8 +31,8 @@ A revisão usa o runtime de artefatos e os validadores da habilidade Presentatio
 
 O script lê `evidence/review3/review3_20261005_final.json`; os dados comerciais e a origem das afirmações são citados nas notas dos slides. O recibo de validação e as imagens de revisão ficam no diretório privado de build. O script não grava ou gera vídeo.
 
-## Entrega e escopo do vídeo
+## Entrega e vídeo
 
-Entregue o ZIP de código e a apresentação atual como arquivos separados, conforme a opção da plataforma. O ZIP exclui a fonte oficial, segredos, estado local e arquivos de mídia. A conferência completa está em [REVISAO_FINAL_REQUISITOS.md](REVISAO_FINAL_REQUISITOS.md).
+Entregue o link do repositório ou o ZIP de código, a apresentação atual e o vídeo como arquivos separados, conforme a opção da plataforma. O ZIP exclui a fonte oficial, segredos, estado local e arquivos de mídia. A conferência completa está em [REVISAO_FINAL_REQUISITOS.md](REVISAO_FINAL_REQUISITOS.md).
 
-O enunciado exige vídeo de três a cinco minutos. Por solicitação do usuário, esta revisão não gravou, narrou, editou, gerou ou verificou vídeo. O arquivo e o roteiro anteriores foram preservados; não integram as conclusões de validação atual. Não houve submissão automática na plataforma.
+O vídeo de três a cinco minutos segue o [roteiro de gravação](ROTEIRO_VIDEO.md): preparação do ambiente, apresentação da arquitetura e demonstração do pipeline rodando no Airflow.

@@ -32,7 +32,7 @@ flowchart LR
   SEC[Kubernetes Secrets] -. credenciais .-> MELTANO
 ```
 
-A [documentação da arquitetura](docs/ARQUITETURA.md) detalha decisões, segurança, limites e publicação.
+A [documentação da arquitetura](docs/ARQUITETURA.md) detalha decisões, segurança, limites e publicação. Para operar o ambiente passo a passo — Kubernetes, Airflow, Meltano, PostgreSQL e dashboard — consulte o [guia prático de uso](docs/GUIA_DE_USO.md).
 
 ## Pré-requisitos
 

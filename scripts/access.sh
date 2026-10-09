@@ -2,6 +2,7 @@
 set -euo pipefail
 source "$(dirname "$0")/common.sh"
 banvic_require_cluster
+banvic_reattach_volumes
 start_forward() {
   local name=$1 service=$2 ports=$3 health_url=${4:-}
   local pid_file="$BANVIC_REPO/.runtime/$name.pid"
