@@ -84,8 +84,9 @@ class SourceTests(unittest.TestCase):
                 prepare_source(path, work, "run-1")
 
     def test_official_zip_contract(self):
-        path = Path(__file__).resolve().parent.parent / "Dados Banvic.zip"
-        if not path.exists():
+        root = Path(__file__).resolve().parent.parent
+        path = next((root / name for name in ("banvic_data.zip", "Dados Banvic.zip") if (root / name).exists()), None)
+        if path is None:
             self.skipTest("Official dataset is intentionally excluded from Git")
         manifest, _ = inspect_zip(path)
         self.assertEqual(manifest["tables"]["clientes"]["rows"], 998)

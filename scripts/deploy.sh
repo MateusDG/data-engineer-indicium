@@ -2,7 +2,9 @@
 set -euo pipefail
 source "$(dirname "$0")/common.sh"
 cd "$BANVIC_REPO"
-banvic_source=${1:-"$BANVIC_REPO/Dados Banvic.zip"}
+# Accept the challenge file name (banvic_data.zip) or the downloaded name (Dados Banvic.zip).
+banvic_source=${1:-"$BANVIC_REPO/banvic_data.zip"}
+[[ $# -gt 0 || -f "$banvic_source" ]] || banvic_source="$BANVIC_REPO/Dados Banvic.zip"
 [[ -f "$banvic_source" ]] || { echo 'Informe o caminho do ZIP oficial como primeiro argumento.' >&2; exit 1; }
 docker info >/dev/null
 mkdir -p "$BANVIC_HOME/data/input" "$BANVIC_HOME/data/work" "$BANVIC_HOME/postgres" "$BANVIC_HOME/logs" "$BANVIC_HOME/terraform/platform" "$BANVIC_HOME/terraform/airflow"

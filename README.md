@@ -4,7 +4,7 @@ Pipeline de ingestão das **sete tabelas do ERP** do BanVic, com Kubernetes loca
 
 O **dashboard comercial** conecta essa plataforma à análise de atividade, retenção, agências e crédito. A área de alavancas apresenta ranking quantitativo para validação, estimativas ajustadas, intervalos de incerteza e planejamento de piloto. A fonte não registra intervenções ou custos: a aplicação explicita que **nenhum efeito causal de investimento está identificado**, sem transformar associação em garantia de retorno.
 
-**Conferência final dos requisitos em 05/10/2026:** 30 testes aprovados, dez grupos HTTP, cinco cenários reais de resiliência, 76.206 linhas integralmente reconciliadas e três módulos Terraform sem diferenças. A execução final terminou em 55,826 s. Consulte a [matriz completa de requisitos e limites](docs/REVISAO_FINAL_REQUISITOS.md); evidências em `evidence/review3/` e `evidence/commercial/`. Vídeo fora desta revisão, conforme solicitado.
+**Conferência final dos requisitos em 05/10/2026:** 30 testes aprovados, dez grupos HTTP, cinco cenários reais de resiliência, 76.206 linhas integralmente reconciliadas e três módulos Terraform sem diferenças. A execução final terminou em 55,826 s. Consulte a [matriz completa de requisitos e limites](docs/REVISAO_FINAL_REQUISITOS.md); evidências em `evidence/review3/` e `evidence/commercial/`.
 
 Operação comercial em [DASHBOARD_COMERCIAL.md](docs/DASHBOARD_COMERCIAL.md), análise em [RESULTADOS_COMERCIAIS.md](docs/RESULTADOS_COMERCIAIS.md) e critérios em [METODOLOGIA_CAUSAL.md](docs/METODOLOGIA_CAUSAL.md).
 
@@ -54,7 +54,7 @@ wsl --install -d Ubuntu-22.04
 Reinicie quando solicitado e crie o usuário Ubuntu. Execute os próximos comandos **dentro do Ubuntu**, como usuário comum:
 
 ```bash
-cd /mnt/c/Users/mateu/Desktop/data-engineer-indicium
+cd /mnt/c/caminho/para/data-engineer-indicium
 sudo bash scripts/install_linux_tools.sh
 bash scripts/install_python_tools.sh
 docker info
@@ -67,7 +67,7 @@ Adapte o caminho à sua cópia. A instalação Linux exige sudo; deploy e execu�
 
 ### 2. Disponibilizar a fonte
 
-Coloque `Dados Banvic.zip` na raiz ou informe seu caminho no deploy. O script copia o ZIP para o volume Linux como `banvic_data.zip`, sem modificar o conteúdo. Ele fica fora do Git e do pacote de código.
+Coloque o ZIP oficial na raiz do projeto como `banvic_data.zip` (o nome `Dados Banvic.zip` também é aceito) ou informe seu caminho no deploy. O script copia o ZIP para o volume Linux como `banvic_data.zip`, sem modificar o conteúdo. Ele fica fora do Git e do pacote de código.
 
 | Tabela | Linhas da fonte oficial verificada |
 |---|---:|
@@ -178,8 +178,6 @@ Consulte [OPERACAO.md](docs/OPERACAO.md). A POC usa autenticação local, volume
 python3 scripts/package_delivery.py
 ```
 
-`delivery/banvic-projeto.zip` inclui código, configuração, documentação e evidências públicas; exclui fonte, credenciais, estado Terraform, caches e logs privados. A apresentação atual é `delivery/BanVic-Apresentacao-Certificacao.pptx`, com dez slides; consulte [APRESENTACAO.md](docs/APRESENTACAO.md). Os materiais anteriores permanecem como histórico.
-
-O enunciado exige um vídeo de três a cinco minutos na entrega. Esta revisão não executou gravação, narração ou geração de vídeo; os materiais existentes foram preservados. A exclusão dessa atividade da revisão não altera o requisito da certificação.
+`delivery/banvic-projeto.zip` inclui código, configuração, documentação e evidências públicas; exclui fonte, credenciais, estado Terraform, caches e logs privados. A apresentação (`BanVic-Apresentacao-Certificacao.pptx`, dez slides; roteiro em [APRESENTACAO.md](docs/APRESENTACAO.md)) e o vídeo de demonstração são enviados junto com a entrega, fora do Git.
 
 O [plano inicial](docs/PLANO_IMPLEMENTACAO_BANVIC.md) registra a preparação anterior à implementação. Os comandos da solução final estão neste README.
