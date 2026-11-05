@@ -36,7 +36,7 @@ A [documentação da arquitetura](docs/ARQUITETURA.md) detalha decisões, segura
 
 ## Pré-requisitos
 
-Ambiente de referência: Windows com WSL 2, Ubuntu 22.04 e Docker Desktop integrado ao Ubuntu. No Linux, é possível usar Docker Engine e os mesmos scripts. O instalador atende Linux x86_64.
+Ambiente de referência: Windows com WSL 2, Ubuntu 22.04 e Docker Desktop integrado ao Ubuntu. No Linux, é possível usar Docker Engine e os mesmos scripts. O instalador Linux atende x86_64; no macOS, use o instalador próprio (seção [macOS](#macos)).
 
 - Pelo menos 8 GB disponíveis para Docker/WSL; 12 GB recomendados. O ambiente de referência dispõe de 15 GB.
 - Aproximadamente 20 GB livres para imagens, volumes e ferramentas.
@@ -64,6 +64,22 @@ bash scripts/check_environment.sh
 ```
 
 Adapte o caminho à sua cópia. A instalação Linux exige sudo; deploy e execução não. Consulte [VERSOES.md](docs/VERSOES.md). Os Dockerfiles e scripts fixam versões e digests.
+
+#### macOS
+
+Apple Silicon ou Intel, com [OrbStack](https://orbstack.dev) ou Docker Desktop aberto. As imagens fixadas têm versões arm64 e amd64. A instalação das ferramentas foi testada no macOS; o deploy completo continua validado apenas no ambiente de referência. No Terminal, sem sudo:
+
+```bash
+cd ~/caminho/para/data-engineer-indicium
+bash scripts/install_mac_tools.sh
+bash scripts/install_python_tools.sh
+docker info
+bash scripts/install_meltano_connectors.sh
+bash scripts/download_images.sh
+bash scripts/check_environment.sh
+```
+
+`install_mac_tools.sh` instala Kind, kubectl, Terraform e Helm nas mesmas versões, com checksums verificados, em `~/.local/bin`. O OrbStack e o Docker Desktop trazem um kubectl mais antigo em `/usr/local/bin`. Se o script avisar, coloque `~/.local/bin` no início do `PATH` do `~/.zshrc`. Os demais passos são os mesmos, executados no Terminal do Mac.
 
 ### 2. Disponibilizar a fonte
 
