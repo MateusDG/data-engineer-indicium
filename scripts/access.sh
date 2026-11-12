@@ -7,10 +7,11 @@ start_forward() {
   local name=$1 service=$2 ports=$3 health_url=${4:-}
   local pid_file="$BANVIC_REPO/.runtime/$name.pid"
   if [[ -f "$pid_file" ]] && kill -0 "$(cat "$pid_file")" 2>/dev/null && \
-     [[ $(awk '{print $3}' "/proc/$(cat "$pid_file")/stat" 2>/dev/null) != Z ]]; then
+     [[ $(ps -o stat= -p "$(cat "$pid_file")" 2>/dev/null) != Z* ]]; then
     local forward_pid forward_command
     forward_pid=$(cat "$pid_file")
-    forward_command=$(tr '\0' ' ' < "/proc/$forward_pid/cmdline")
+    # ps works on Linux and macOS; /proc does not exist on macOS.
+    forward_command=$(ps -o args= -p "$forward_pid" 2>/dev/null || true)
     if [[ "$forward_command" == *kubectl*port-forward*"$service"*"$ports"* ]]; then
       if [[ -z "$health_url" ]] || curl --fail --silent --max-time 2 "$health_url" >/dev/null; then
         echo "$name já está ativo."

@@ -22,3 +22,7 @@ delivery/*.pptx
 delivery/frames/
 evidence/private/
 **/node_modules/
+Dados Banvic/
+docs/*.privado.md
+docs/*.privado.pdf
+docs
