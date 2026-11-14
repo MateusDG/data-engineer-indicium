@@ -4,11 +4,7 @@ Pipeline de ingestão das **sete tabelas do ERP** do BanVic, com Kubernetes loca
 
 O **dashboard comercial** conecta essa plataforma à análise de atividade, retenção, agências e crédito. A área de alavancas apresenta ranking quantitativo para validação, estimativas ajustadas, intervalos de incerteza e planejamento de piloto. A fonte não registra intervenções ou custos: a aplicação explicita que **nenhum efeito causal de investimento está identificado**, sem transformar associação em garantia de retorno.
 
-**Conferência final dos requisitos em 05/10/2026:** 30 testes aprovados, dez grupos HTTP, cinco cenários reais de resiliência, 76.206 linhas integralmente reconciliadas e três módulos Terraform sem diferenças. A execução final terminou em 55,826 s. Consulte a [matriz completa de requisitos e limites](docs/REVISAO_FINAL_REQUISITOS.md); evidências em `evidence/review3/` e `evidence/commercial/`.
-
-Operação comercial em [DASHBOARD_COMERCIAL.md](docs/DASHBOARD_COMERCIAL.md), análise em [RESULTADOS_COMERCIAIS.md](docs/RESULTADOS_COMERCIAIS.md) e critérios em [METODOLOGIA_CAUSAL.md](docs/METODOLOGIA_CAUSAL.md).
-
-As [revisões de 04/10/2026](docs/REVISAO_COMPLETA.md) e a [validação inicial](docs/VALIDACAO.md) foram preservadas como histórico. Seus números de testes e escopo correspondem às versões verificadas naquelas etapas.
+**Conferência final dos requisitos em 05/10/2026:** 30 testes aprovados, dez grupos HTTP, cinco cenários reais de resiliência, 76.206 linhas integralmente reconciliadas e três módulos Terraform sem diferenças. A execução final terminou em 55,826 s. As evidências estão em `evidence/review3/` e `evidence/commercial/`.
 
 ## Arquitetura
 
@@ -31,8 +27,6 @@ flowchart LR
   TF -. provisiona no Kind .-> API
   SEC[Kubernetes Secrets] -. credenciais .-> MELTANO
 ```
-
-A [documentação da arquitetura](docs/ARQUITETURA.md) detalha decisões, segurança, limites e publicação. Para operar o ambiente passo a passo — Kubernetes, Airflow, Meltano, PostgreSQL e dashboard — consulte o [guia prático de uso](docs/GUIA_DE_USO.md).
 
 ## Pré-requisitos
 
@@ -63,7 +57,7 @@ bash scripts/download_images.sh
 bash scripts/check_environment.sh
 ```
 
-Adapte o caminho à sua cópia. A instalação Linux exige sudo; deploy e execução não. Consulte [VERSOES.md](docs/VERSOES.md). Os Dockerfiles e scripts fixam versões e digests.
+Adapte o caminho à sua cópia. A instalação Linux exige sudo; deploy e execução não. Os Dockerfiles e scripts fixam versões e digests.
 
 #### macOS
 
@@ -149,7 +143,7 @@ bash scripts/access.sh
 
 Abra **http://localhost:8090**, usuário **`comercial`**, senha no campo **`dashboard_admin`** do arquivo privado de credenciais. O pacote já inclui os arquivos ECharts e sua licença; Node/npm só são necessários para alterar essa dependência. O deploy constrói a terceira imagem e aplica `infra/commercial`, com estado privado fora do repositório.
 
-São seis telas, com filtros por período, canal e agência, pesquisa de unidades, coortes, diagnósticos de evidência, simulador de tamanho amostral e exportação CSV. Nenhum nome, documento ou identificador de cliente é enviado ao navegador. O padrão é outubro–dezembro/2022; janeiro/2023 é parcial. Consulte o [guia de uso e as definições](docs/DASHBOARD_COMERCIAL.md).
+São seis telas, com filtros por período, canal e agência, pesquisa de unidades, coortes, diagnósticos de evidência, simulador de tamanho amostral e exportação CSV. Nenhum nome, documento ou identificador de cliente é enviado ao navegador. O padrão é outubro–dezembro/2022; janeiro/2023 é parcial.
 
 ## Ingestão e resiliência
 
@@ -186,7 +180,7 @@ kubectl -n banvic get pvc
 kubectl -n banvic logs statefulset/airflow-scheduler -c scheduler --tail=80
 ```
 
-Consulte [OPERACAO.md](docs/OPERACAO.md). A POC usa autenticação local, volumes neste computador e métricas StatsD no cluster. Produção exige SSO, TLS, backup, retenção e infraestrutura gerenciada conforme a arquitetura documentada.
+A POC usa autenticação local, volumes neste computador e métricas StatsD no cluster. Produção exige SSO, TLS, backup, retenção e infraestrutura gerenciada conforme a arquitetura documentada.
 
 ## Entrega
 
@@ -194,6 +188,4 @@ Consulte [OPERACAO.md](docs/OPERACAO.md). A POC usa autenticação local, volume
 python3 scripts/package_delivery.py
 ```
 
-`delivery/banvic-projeto.zip` inclui código, configuração, documentação e evidências públicas; exclui fonte, credenciais, estado Terraform, caches e logs privados. A apresentação (`BanVic-Apresentacao-Certificacao.pptx`, dez slides; roteiro em [APRESENTACAO.md](docs/APRESENTACAO.md)) e o vídeo de demonstração são enviados junto com a entrega, fora do Git.
-
-O [plano inicial](docs/PLANO_IMPLEMENTACAO_BANVIC.md) registra a preparação anterior à implementação. Os comandos da solução final estão neste README.
+`delivery/banvic-projeto.zip` inclui código, configuração, documentação e evidências públicas; exclui fonte, credenciais, estado Terraform, caches e logs privados. A apresentação (`BanVic-Apresentacao-Certificacao.pptx`, dez slides) e o vídeo de demonstração são enviados junto com a entrega, fora do Git.
